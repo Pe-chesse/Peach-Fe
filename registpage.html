@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/reset.css" rel="stylesheet"/>
+    <link href="/css/registpage.css" rel="stylesheet"/>
+    <title>Peach Market</title>
+</head>
+<body>
+    <div class="wrapper">
+        <aritcle class="top-area">
+            <a href="javascript:window.history.back();"><img src="/img/arrow.png" alt="arrow"/></a>
+            <p>회원가입</p>
+        </aritcle>
+        <section class="main-area">
+            <h2>JOIN 🍑</h2>
+            <p>이메일과 비밀번호를 입력해 가입해주세요</p>
+            <form>
+                    <input type="email" name="email" id="email" onchange="inputValueEmail()" placeholder="이메일"/>
+                    <p class="email-warn">* 이메일양식이 잘못되었습니다.</p>
+                    <input type="password" name="password" id="password" onchange="inputValuePwr()" placeholder="비밀번호"/>
+                    <p class="pass-warn">* 비밀번호는 문자,숫자,특수문자 포함 6~15자이내로 <br/> &nbsp&nbsp입력해주세요</p>
+            </form>
+        </section>
+        <div class="next-btn">
+            <button>다음</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/registpage.js"></script>
+</body>
+</html>

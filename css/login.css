@@ -1,6 +1,6 @@
 /* to login */
 .wrapper {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: #FFBFBF;
     display: flex;
@@ -12,7 +12,7 @@
 .logo {
     text-align: center;
     width:100%;
-    margin-top: 180px;
+    margin-top: 100px;
 }
 
 .logo img {
@@ -30,8 +30,8 @@
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    height: 300px;
-    justify-content: center;
+    height: calc(100vh - 50vh);
+    justify-content: flex-start;
     align-items: center;
     position: absolute;
     bottom: 0px;
@@ -49,6 +49,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 5px;
+    margin-top: calc(100vh - 90vh)
 }
 
 .go-login button img {
