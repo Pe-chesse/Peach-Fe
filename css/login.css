@@ -71,12 +71,12 @@
     justify-content: center;
 }
 
-.go-login .login-reg p::after{
+.go-login .login-reg a::after{
     content: 'ㅣ';
     margin-right: 1px;
 
 }
 
-.go-login .login-reg p:last-child::after {
+.go-login .login-reg a:last-child::after {
     content: ''
 }
