@@ -1,0 +1,22 @@
+.wrapper {
+    width: 100%;
+}
+
+.logo {
+    text-align: center;
+    width:100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo img {
+    width: 150px;
+    height: 150px;
+}
+
+.logo p {
+    font-weight: bold;
+    font-size: 25px;
+}
