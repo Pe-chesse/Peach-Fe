@@ -12,9 +12,7 @@ function inputValueEmail(){
 
 function inputValuePwr(){
     let PwrValue = document.querySelector('#password').value;
-    console.log(PwrValue)
     const specialLetter = PwrValue.search( /^.*(?=^.{6,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/);
-    console.log(specialLetter)
     let checkPwr = PwrValue.length >= 6 && specialLetter >= 0;
 
     if(!checkPwr){
