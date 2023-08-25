@@ -4,9 +4,11 @@ function inputValueEmail(){
 
     if(!emailpattern.test(EmailValue) || EmailValue.length <= 1){
         document.querySelector('.email-warn').style.opacity = '1'
+        return false
     }
     else{
         document.querySelector('.email-warn').style.opacity = '0'
+        return true
     }
 }
 
@@ -17,8 +19,10 @@ function inputValuePwr(){
 
     if(!checkPwr){
         document.querySelector('.pass-warn').style.opacity ='1'
+        return false
     }
     else{
         document.querySelector('.pass-warn').style.opacity='0'
+        return true
     }
 }
