@@ -1,0 +1,125 @@
+/* homepage */
+
+.wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.top-area {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.top-area img {
+    width: 20px;
+    height: 20px;
+    justify-content: flex-end;
+}
+
+.top-area p {   
+    font-size: large;
+}
+
+.logo img {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+}
+
+.search-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-btn button {
+    width: 30%;
+    height: 44px;
+    border-radius: 30px;
+    outline: none;
+    background: #ffbfbf;
+    border: none;
+    color :#fff;
+    font-size: 14px;
+}
+
+/* tab-menu */
+
+.tab-menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #DBDBDB;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.tab-menu-elements {
+    width: calc(100% - 12px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    align-items: flex-end;
+    text-align: center;
+}
+
+.tab-menu-elements li {
+    width: 84px;
+    cursor: pointer;
+}
+
+.tab-menu-elements li a {
+    position: relative;
+    display: inline-block;
+    font-size: 10px;
+    width: 100%;
+    padding: 44px 1px 6px 0;
+}
+
+.tab-menu-elements li a::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 12px;
+    left: 30px;
+    background-size: contain;
+}
+
+.tab-menu-elements .tab-menu-home a::before {
+    background-image: url(../img/home_icon.png);
+}
+.tab-menu-elements .tab-menu-chat a::before {
+    background-image: url(../img/message_icon.png);
+}
+.tab-menu-elements .tab-menu-post a::before {
+    background-image: url(../img/edit_icon.png);
+}
+.tab-menu-elements .tab-menu-profile a::before {
+    background-image: url(../img/user_icon.png);
+}
+.tab-menu-home.on a::before {
+    background-image: url(../img/home_icon_fill.png);
+}
+.tab-menu-chat.on a::before {
+    background-image: url(../img/message_icon_fill.png);
+}
+.tab-menu-profile.on a::before {
+    background-image: url(../img/user_icon_fill.png);
+}
+
+.tab-menu-home.on a,
+.tab-menu-chat.on a,
+.tab-menu-profile.on a {
+    color: #ffbfbf;
+}
