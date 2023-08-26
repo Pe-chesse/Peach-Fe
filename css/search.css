@@ -1,4 +1,4 @@
-/* homepage */
+/* search page */
 
 .wrapper {
     width: 100%;
@@ -9,7 +9,7 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 15px 0px;
     border-bottom: 1px solid #dbdbdb;
@@ -25,32 +25,43 @@
     font-size: large;
 }
 
-.logo img {
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.6;
-}
-
-.search-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.search-btn button {
-    width: 30%;
-    height: 44px;
-    border-radius: 30px;
+.prev-button {
     outline: none;
-    background: #ffbfbf;
     border: none;
-    color :#fff;
-    font-size: 14px;
+    background: none;
     cursor: pointer;
+}
+
+.userSearch {
+    margin-right: 4px;
+    padding: 7px 16px;
+    width: 80%;
+    min-width: 316px;
+    border: none;
+    background: #F2F2F2;
+    border-radius: 32px;
+    cursor: pointer;
+}
+
+.userSearch::placeholder {
+    color: #c4c4c4;
+}
+
+.userSearch:focus {
+    outline: 2px solid #ffbfbf;
+}
+
+
+/* 라벨 숨기기 */
+.sr-only {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
 }
 
 /* tab-menu */
