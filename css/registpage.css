@@ -2,6 +2,7 @@
 
 .wrapper {
     width: 100%;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -109,14 +110,15 @@ section form input:focus {
     font-size: 12px;
 }
 
-.next-btn {
+/* .next {
     width: 100%;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.next-btn button {
+.next-btn {
     width: 80%;
     height: 44px;
     border-radius: 30px;
@@ -125,4 +127,79 @@ section form input:focus {
     border: none;
     color :#fff;
     font-size: 14px;
+    transition: all .3s;
+    text-align: center;
+}
+
+.back-black {
+    background: #ffbfbf;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    display: none;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.popup {
+    width: 280px;
+    height: 240px;
+    background: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    padding: 30px;
+    display: none;
+    transition: all .5s;
+    opacity: 0;
+}
+
+.pop-message {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.pop-message h3{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.pop-message p {
+    font-size: 14px;
+    margin-bottom: 25px;
+    color: #49454f;
+    line-height: 24px;
+    font-weight: bold;
+    word-break: keep-all;
+}
+
+.check-btn {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffbfbf;
+    border: none;
+    background: #fff;
+    position: absolute;
+    bottom: 34px;
+    right: 34px;
+    width: 50px;
+    height: 40px;
+}
+
+.op05 {
+    opacity: 0.5 !important;
+}
+
+.op1 {
+    opacity: 1 !important;
+}
+
+.dibl {
+    display: block !important;
 }
