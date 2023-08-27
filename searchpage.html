@@ -5,24 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/reset.css" rel="stylesheet"/>
-    <link href="/css/homepage.css" rel="stylesheet"/>
+    <link href="/css/search.css" rel="stylesheet"/>
     <title>Peach Market</title>
 </head>
 <body>
     <div class="wrapper">
-        <article class="top-area">
-            <strong>
-                <a href="./homepage.html"><p>🍑 PEACH MARKET</p></a>
-            </strong>
-            <a href="./search.html"><img src="./img/search_icon.png" alt="검색아이콘사진"></a>
-        </article>
-        
-        <article class="logo">
-            <img src="./img/Peach_logo.PNG" alt="피치로고사진">
-            <div class="search-btn">
-                <button type="button" class="Searchbtn">검색하기</button>
-            </div>
-        </article>
+        <form method="get" class="top-area">
+            <button type="button" class="prev-button"><img src="./img/arrow.png" alt="arrow"></button>
+            <label for="user-search" class="sr-only"></label>
+            <input type="search" placeholder="계정 검색" id="user-search" class="userSearch">
+        </form>
         
         <article>
             <nav class="tab-menu">
@@ -43,6 +35,6 @@
             </nav>
         </article>
     </div>
-    <script src="./js/homepage_tabmenu.js"></script>
+    <script src="./js/search.js"></script>
 </body>
 </html>

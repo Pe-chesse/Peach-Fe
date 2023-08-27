@@ -1,7 +1,7 @@
-// search.html 이동
-const SearchBtn = document.querySelector('.Searchbtn');
-SearchBtn.addEventListener('click', () => {
-    window.location.href = 'searchpage.html';
+// homepage.html 이동
+const prevButton = document.querySelector('.prev-button');
+prevButton.addEventListener('click', () => {
+    window.location.href = 'homepage.html';
 });
 
 // tab-menu
