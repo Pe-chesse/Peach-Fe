@@ -5,25 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/profile.css">
-    <title></title>
+    <title>Peach-Market</title>
 </head>
 <body>
-    <div class="main-area">
-<header class="default-header">
-    <h1>PROFILE🍑</h1>
-    <h3>나중에 언제든지 변경할 수 있습니다</h3>
-</header>
-<div class="image-select">
-    <img src="img/profile.png" alt="Profile">
-    <input type="file" name="profile-img" id="profile-img" accept="image/*">
-</div>
-<div class="InputText">
-    <input type="text" placeholder="닉네임" id="nickname">
-    <input type="textarea" placeholder="소개" id="introduce">
-</div>
-    <div class="start-btn">
-        <a href="home.html"><input type="button" value="PEACH MARKET 시작하기"></a>
+    <div class="wrapper">
+        <article class="top-area">
+            <a href="javascript:window.history.back();"><img src="./img/arrow.png" alt="arrow"/></a>
+            <a href=""><img src="./img/top_menu_op.png" alt="more_vertical"></a>
+        </article>
+
+        <article class="main-area">
+
+            <header class="default-header">
+                <h1>PROFILE🍑</h1>
+                <h3>나중에 언제든지 변경할 수 있습니다</h3>
+            </header>
+
+            <div class="image-select">
+                <label for="profile-img"><img src="img/profile.png" alt="profile-img"/></label>
+                <input type="file" name="profile-img" id="profile-img" accept="image/*">
+            </div>
+
+            <div class="input-text">
+                <input type="text" placeholder="닉네임" id="nickname">
+                <p class="nick-warn">* 이미 사용중인 닉네임입니다.</p>
+                <input type="textarea" placeholder="소개" id="introduce">
+            </div>
+
+            <button class="start-btn">수정하기</button>
+
+        </article>
     </div>
-</div>
 </body>
 </html>
