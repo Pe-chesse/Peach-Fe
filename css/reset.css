@@ -50,6 +50,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+.wrapper{
+    width: 100%;
+}
 /* 라벨 숨기기 */
 .sr-only {
 	position: absolute;
