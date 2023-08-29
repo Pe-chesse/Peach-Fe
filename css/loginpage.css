@@ -84,6 +84,9 @@ section form .email {
     display: flex;
     justify-content: flex-start;
     opacity: 0;
+    transition: all .3s;
+    word-break: keep-all;
+    line-height: 14px;
 }
 
 .regist-btn {
@@ -99,14 +102,14 @@ section form .email {
     font-size: 12px;
 }
 
-.login-btn {
+.login-btn-area {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login-btn button {
+.login-btn-area button {
     width: 80%;
     height: 44px;
     border-radius: 30px;
@@ -115,4 +118,61 @@ section form .email {
     border: none;
     color :#fff;
     font-size: 14px;
+}
+
+.email-verify {
+    width: 312px;
+    height: 260px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    border: 1px solid #ffbfbf;
+    border-radius: 28px;
+    padding: 24px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    word-break: keep-all;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.email-verify h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+
+}
+
+.email-verify p{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.send-btn-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    padding-top: 24px;
+}
+
+.send-btn-area button {
+    margin-right: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.resend {
+    color: #6750A4;
+}
+
+.disfl {
+    display: flex;
 }

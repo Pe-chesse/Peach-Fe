@@ -404,6 +404,7 @@ section form .email {
     height: 138px;
     border: 2px solid #ffbfbf;
     padding: 26px 0;
+    z-index: 15;
 }
 
 .disbl {
