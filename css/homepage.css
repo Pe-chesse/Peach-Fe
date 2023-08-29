@@ -1,8 +1,9 @@
-/* homepage */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
 
 .wrapper {
     width: 100%;
     overflow: hidden;
+    font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
 .top-area {
