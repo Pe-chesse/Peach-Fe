@@ -96,6 +96,7 @@ header img{
 
 #comment-text1{
     margin-left: 50px;
+    margin-top: 10px;
 }
 
 #user-id2{
@@ -112,6 +113,7 @@ header img{
 
 #comment-text2{
     margin-left: 50px;
+    margin-top: 10px;
 }
 
 .comment-write {
@@ -123,7 +125,7 @@ header img{
 
 #comment-input{
     border: none;
-    color: #C4C4C4;
+    /* color: #C4C4C4; */
     font-size: 15px;
 }
 
@@ -132,6 +134,14 @@ header img{
     background-color: white;
     color: #C4C4C4;
     font-size: 15px;
+    cursor: pointer;
+}
+
+#delete-btn1,
+#delete-btn2 {
+    float: right;
+    margin-right: 300px;
+    margin-top: -30px;
     cursor: pointer;
 }
 
