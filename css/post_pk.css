@@ -1,0 +1,143 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+header img{
+    width: 3%;
+}
+
+#posting-user{
+    margin-top: -35px;
+    margin-left: 50px;
+}
+
+#update-time{
+    margin-left: 50px;
+    margin-top: 3px;
+    margin-bottom: 30px;
+    font-size: 13px;
+}
+
+#main-text{
+    margin-left: 50px;
+    width: 70%;
+    height: 100%;
+}
+
+#posting-img{
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 70%;
+}
+
+#img-list{
+    position: absolute;
+    margin-top: 43%;
+    left: 37.5%;
+    z-index: 1;
+    width: 50px;
+}
+
+.container{
+    margin-left: 50px;
+}
+
+#heart-img,
+#heart-cnt,
+#comment-img,
+#comment-cnt {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 10px;
+    margin-right: 15px;
+}
+
+#heart-cnt,
+#comment-cnt{
+    color: #C4C4C4;
+}
+
+#comment-user {
+    width: 40px; /* Adjust width as needed */
+    height: 40px; /* Adjust height as needed */
+    margin-right: 10px; /* Adjust margin as needed */
+}
+
+#comment-input {
+    flex: 1;
+    padding: 5px;
+}
+
+#commenting {
+    padding: 5px 10px;
+}
+
+#girl-icon,
+#man-icon{
+    width: 45px;
+}
+
+#man-icon{
+    margin-top: 15px;
+}
+
+#user-id1{
+    margin-top: -30px;
+    margin-left: 50px;
+}
+
+#comment-time1{
+    margin-left: 160px;
+    margin-top: -13px;
+    color: #767676;
+    font-size: 3px;
+}
+
+#comment-text1{
+    margin-left: 50px;
+}
+
+#user-id2{
+    margin-top: -30px;
+    margin-left: 50px;
+}
+
+#comment-time2{
+    margin-left: 160px;
+    margin-top: -13px;
+    color: #767676;
+    font-size: 3px;
+}
+
+#comment-text2{
+    margin-left: 50px;
+}
+
+.comment-write {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    width: 78%;
+}
+
+#comment-input{
+    border: none;
+    color: #C4C4C4;
+    font-size: 15px;
+}
+
+#commenting{
+    border: none;
+    background-color: white;
+    color: #C4C4C4;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+    width: 78%;
+}
