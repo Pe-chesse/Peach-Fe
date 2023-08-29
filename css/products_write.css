@@ -57,6 +57,16 @@ hr {
     width: 110%;
 }
 
+.input-text input::placeholder {
+    color: #DBDBDB;
+}
+
+#image-update {
+    position: relative;
+    top: 0.5%;
+    left: 50px;
+}
+
 .input-text p {
     margin-bottom: 10%;
 }
