@@ -5,13 +5,13 @@ SearchBtn.addEventListener('click', () => {
 });
 
 // tab-menu
-const tabMenuElements = document.querySelectorAll('.tab-menu-elements li');
+// const tabMenuElements = document.querySelectorAll('.tab-menu-elements li');
 
-tabMenuElements.forEach(element => {
-    element.addEventListener('click', () => {
-    tabMenuElements.forEach(otherElement => {
-    otherElement.classList.remove('on');
-    });
-    element.classList.add('on');
-});
-});
+// tabMenuElements.forEach(element => {
+//     element.addEventListener('click', () => {
+//     tabMenuElements.forEach(otherElement => {
+//     otherElement.classList.remove('on');
+//     });
+//     element.classList.add('on');
+// });
+// });
