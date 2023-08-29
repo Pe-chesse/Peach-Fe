@@ -1,0 +1,70 @@
+.prev-button {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.post_btn {
+    width: 75px;
+    height: 33px;
+    border-radius: 30px;
+    outline: none;
+    background: #ffbfbf;
+    border: none;
+    color :#fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+article.upload {
+    padding: 70px 16px 0px 16px;
+}
+
+.upload .upload_form {
+    display: flex;
+    align-items: flex-start;
+}
+
+.upload_form .profile_img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: .5px solid #DBDBDB;
+    font-size: 10px;
+    flex: none;
+}
+
+.upload_form .upload_post {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    resize: none;
+    border: none;
+}
+
+.upload_form .upload_img {
+    font-size: 0;
+    background: url(../img/upload-file.png) no-repeat;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+
+.upload_form .upload_input {
+    display: none;
+}
+
+.upload .img-container {
+    width: 304px;
+    height: 228px;
+    margin: 16px auto 0;
+    display: flex;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+    gap: 8px;
+}
