@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+
+.wrapper {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
 /* 상단 바 */
 .top-area {
     display: flex;
