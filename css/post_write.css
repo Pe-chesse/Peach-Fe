@@ -1,8 +1,6 @@
-.prev-button {
-    outline: none;
-    border: none;
-    background: none;
-    cursor: pointer;
+.top-area img {
+    width: 24px;
+    height: 24px;
 }
 
 .post_btn {
