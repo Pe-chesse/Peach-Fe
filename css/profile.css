@@ -88,7 +88,7 @@
     border: 1px solid #ffbfbf;
 }
 
-.start-btn {
+.start-btn, .fix-btn {
     width: 100%;
     background: #ffbfbf;
     border-radius: 20px;
@@ -96,6 +96,7 @@
     display: flex;
     justify-content: center;
     color: #fff;
+    cursor: pointer;
 }
 
 
@@ -104,4 +105,12 @@
     color: #EB5757;
     margin: 0 0 15px 10px;
     opacity:0;
+}
+
+.skip {
+    height: 18px;
+    margin-top: 18px;
+    font-size: 14px;
+    color: #767676;
+    border-bottom: 1px solid #767676;
 }
