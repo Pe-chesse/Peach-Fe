@@ -18,8 +18,13 @@
     <p>이미지 등록</p>
     <img src="img/Peach.PNG" alt="상품 이미지">
 </div>
-<img src="img/product_update.png" alt="상품 이미지 업데이트" id="image-update">
-<div class="input-text">
+<a type="file">
+    <label for="image-input">
+        <img src="img/product_update.png" alt="상품 이미지 업데이트" id="image-update">
+    </label>
+    <input type="file" id="image-input" style="display: none;">
+</a>
+<div class="input-text">`
 <div class="products">
     <p>상품명</p>
     <input type="textarea" placeholder="2~15자 이내여야 합니다.">
