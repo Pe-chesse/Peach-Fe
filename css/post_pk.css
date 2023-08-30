@@ -1,61 +1,120 @@
-body{
+.posting-main {
+    margin-top: 11px;
+    padding: 0 25px 0 15px;
+    border-bottom: 1px solid #d9d9d9;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
-header img{
-    width: 3%;
+.post-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 16px;
 }
 
-#posting-user{
-    margin-top: -35px;
-    margin-left: 50px;
+.post-user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 10px;
+    line-height: 20px;
 }
 
-#update-time{
-    margin-left: 50px;
-    margin-top: 3px;
-    margin-bottom: 30px;
-    font-size: 13px;
+#posting-user {
+    font-size: 16px;
+    font-weight: bold;
 }
 
 #main-text{
-    margin-left: 50px;
-    width: 70%;
-    height: 100%;
+    margin: 0 0 16px 42px;
+    line-height: 20px;
+    word-break: keep-all;
+}
+
+.img-area {
+    margin-left: 42px;
+    position: relative;
+    margin-bottom: 16px;
 }
 
 #posting-img{
-    margin-top: 10px;
-    margin-left: 50px;
-    width: 70%;
+    width: 295px;
+    height: 207px;
 }
 
 #img-list{
     position: absolute;
-    margin-top: 43%;
-    left: 37.5%;
+    bottom: 10px;
+    left: calc(50% - 25px);
+    transform: translate(0,-50%);
     z-index: 1;
     width: 50px;
 }
 
 .container{
-    margin-left: 50px;
+    margin: 0 0 20px 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-#heart-img,
-#heart-cnt,
-#comment-img,
-#comment-cnt {
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: 10px;
-    margin-right: 15px;
+.container img {
+    margin-right: 7px;
+}
+
+.container p {
+    margin-right: 10px;
 }
 
 #heart-cnt,
 #comment-cnt{
     color: #C4C4C4;
+}
+
+.comment-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+    padding: 0 25px 0 15px;
+}
+
+.comment {
+    width: 100%;
+    margin-bottom: 27px;
+}
+
+.comment:last-child {
+    margin-bottom: 0;
+}
+
+
+.comment-user-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.user-icon {
+    width: 45px;
+    height: 45px;
+}
+
+.user-nick {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 2;
+    margin: -7px 0 0 10px;
+
 }
 
 #comment-user {
@@ -64,69 +123,44 @@ header img{
     margin-right: 10px; /* Adjust margin as needed */
 }
 
-#comment-input {
-    flex: 1;
-    padding: 5px;
-}
-
-#commenting {
-    padding: 5px 10px;
-}
-
-#girl-icon,
-#man-icon{
-    width: 45px;
-}
-
-#man-icon{
-    margin-top: 15px;
-}
-
-#user-id1{
-    margin-top: -30px;
-    margin-left: 50px;
-}
-
-#comment-time1{
-    margin-left: 160px;
-    margin-top: -13px;
+.comment-time{
     color: #767676;
     font-size: 3px;
+    margin-left: 8px;
 }
 
-#comment-text1{
-    margin-left: 50px;
-    margin-top: 10px;
-}
-
-#user-id2{
-    margin-top: -30px;
-    margin-left: 50px;
-}
-
-#comment-time2{
-    margin-left: 160px;
-    margin-top: -13px;
-    color: #767676;
-    font-size: 3px;
-}
-
-#comment-text2{
-    margin-left: 50px;
-    margin-top: 10px;
+.comment-text{
+    margin-left: 55px;
 }
 
 .comment-write {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    border-top: 1px solid #d9d9d9;
+    width: 100%;
+}
+
+.comment-write-area {
     display: flex;
+    padding: 10px 7px;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    margin-top: 10px;
-    width: 78%;
 }
 
 #comment-input{
     border: none;
     /* color: #C4C4C4; */
     font-size: 15px;
+    flex-grow: 2;
+    border-bottom: 1px solid transparent;
+}
+
+#comment-input:focus {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #d9d9d9; 
 }
 
 #commenting{
@@ -137,17 +171,131 @@ header img{
     cursor: pointer;
 }
 
-#delete-btn1,
-#delete-btn2 {
-    float: right;
-    margin-right: 300px;
-    margin-top: -30px;
+.comment-option {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
 }
 
-hr {
-    border: none;
-    border-top: 1px solid #ccc;
-    margin: 10px 0;
-    width: 78%;
+.modal {
+    padding: 13px 26px;
+    background: #fff;
+    height: 0px;
+    border-radius: 20px 20px 0 0;
+    border: 1px solid #ffdfdf;
+    z-index: 10;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all .5s;
 }
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.modal img {
+    width: 50px;
+    height: 4px;
+    margin: 16px 0 16px 0;
+}
+
+.modal button {
+    width: 100%;
+    height: 46px;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.modal-back {
+    width: 100%;
+    height: 0px;
+    background: transparent;
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.after {
+    visibility: visible;
+    height: 108px;
+}
+
+.back-after {
+    height: 100vh;
+    display: block;
+}
+
+.delete-confirm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 1px solid #ffbfbf;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 130px;
+    z-index: 10;
+    border-radius: 15px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.delete-confirm h3{
+    font-size: 16px;
+    font-weight: bold;
+    height: 65px;
+    line-height: 65px;
+    border-bottom: 1px solid #dbdbdb;
+    width: 100%;
+    text-align: center;
+}
+
+.delete-confirm ul {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+}
+
+.delete-confirm li {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.delete {
+    color: #ffbfbf;
+    border-left: 1px solid #dbdbdb;
+}
+
+.after-click {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+

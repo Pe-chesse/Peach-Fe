@@ -1,33 +1,3 @@
-.wrapper {
-    width: 100%;
-}
-
-/* 상단 바 */
-.top-area {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    border-bottom: 1px solid #dbdbdb;
-    margin-bottom: 6px;
-}
-
-.top-area img {
-    width: 24px;
-    height: 24px;
-}
-
-.top-area a {   
-    margin-right: 15px;
-}
-
-.top-area h1 {
-    flex-grow: 2;
-    font-weight: bold;
-    font-size: 20px;
-}
-
 /* follow-list */
 .follower-list {
     width: 100%;

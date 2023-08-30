@@ -7,26 +7,6 @@ body::-webkit-scrollbar {
     overflow: hidden;
 }
 
-.top-area {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    border-bottom: 1px solid #dbdbdb;
-    margin-bottom: 6px;
-}
-
-.top-area img {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-}
-
-.top-area a {   
-    margin-right: 15px;
-}
-
 .main-profile-area {
     display: flex;
     flex-direction: column;

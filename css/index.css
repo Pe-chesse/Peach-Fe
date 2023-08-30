@@ -1,12 +1,10 @@
 .wrapper {
-    width: 100vw;
     height: 100vh;
     background-color: #FFBFBF;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
 .logo {
