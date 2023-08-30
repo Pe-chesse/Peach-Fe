@@ -48,7 +48,7 @@ loginbtn.addEventListener('click',(e)=>{
             })
         }
         else{
-            window.location.href='/profile.html'
+            window.location.href='/html/profile.html'
         }
         })
     .catch((error)=>{
