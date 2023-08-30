@@ -55,6 +55,7 @@ table {
 }
 .wrapper{
     width: 100%;
+    font-family: 'IBM Plex Sans KR', sans-serif;
 }
 /* 라벨 숨기기 */
 .sr-only {
@@ -81,7 +82,7 @@ table {
     width: calc(100% - 12px);
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 14px;
     align-items: flex-end;
     text-align: center;
@@ -136,4 +137,32 @@ table {
 .tab-menu-chat.on a,
 .tab-menu-profile.on a {
     color: #ffbfbf;
+}
+
+/* top-area */
+/* 상단 바 */
+.top-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #dbdbdb;
+    margin-bottom: 6px;
+}
+
+.top-area img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.top-area a {   
+    margin-right: 15px;
+}
+
+.top-area h1 {
+    flex-grow: 2;
+    font-weight: bold;
+    font-size: 20px;
 }

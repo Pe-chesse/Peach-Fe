@@ -1,26 +1,11 @@
 .wrapper {
-    width: 100%;
     overflow: hidden;
 }
 
-.top-area {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 8px;
-    border-bottom: 1px solid #dbdbdb;
-}
-
-.top-area img {
-    width: 20px;
-    height: 20px;
-}
-
-.top-area p {   
+.top-area a {   
     font-size: large;
     font-weight: bold;
-}
+} 
 
 .logo {
     position: absolute;

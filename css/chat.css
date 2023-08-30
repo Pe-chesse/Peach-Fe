@@ -1,27 +1,5 @@
 .wrapper {
-    width: 100%;
     overflow: hidden;
-}
-
-/* top-area */
-.top-area {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0px;
-    border-bottom: 1px solid #dbdbdb;
-}
-
-.top-area img {
-    width: 24px;
-    height: 24px;
-    padding-inline: 10px;
-}
-
-.top-area h1 {   
-    font-size: large;
 }
 
 /* chat-list */

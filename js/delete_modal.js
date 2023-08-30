@@ -1,33 +1,38 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const deleteButtons = document.querySelectorAll('.delete-btn');
-    const modal = document.getElementById('modal');
+    const deleteButtons = document.querySelectorAll('.comment-option');
+    const modal = document.querySelector('.modal');
+    const modalback = document.querySelector('.modal-back')
     const modalContent = document.querySelector('.modal-content');
     const closeModalButton = document.getElementById('close-modal');
     const confirmDeleteButton = document.querySelector('.confirm-delete');
 
     deleteButtons.forEach((button) => {
         button.addEventListener('click', function () {
-            const commentText = button.getAttribute('data-comment');
-
-            modalContent.innerHTML = `
-                <h2>삭제하시겠습니까?</h2>
-                <p>${commentText}</p>
-                <button class="confirm-delete">삭제</button>
-                <button class="cancel-delete" id="close-modal">취소</button>
-            `;
-
-            modal.style.display = 'block';
-
-            closeModalButton.addEventListener('click', function () {
-                modal.style.display = 'none';
-            });
-
-            confirmDeleteButton.addEventListener('click', function () {
-                
-                alert('댓글이 삭제되었습니다.');
-
-                modal.style.display = 'none';
-            });
+            modal.classList.toggle('after');
+            modalback.classList.toggle('back-after');
         });
+
+    modalback.addEventListener('click',()=>{
+        if(modal.classList.contains('after')){
+            modal.classList.remove('after')
+        }
+        modalback.classList.remove('back-after')
+    })
+
+    document.querySelector('.delete-btn').addEventListener('click',()=>{
+        modal.classList.remove('after');
+        document.querySelector('.delete-confirm').classList.add('after-click')
+    })
+    
+    document.querySelector('.delete').addEventListener('click',()=>{    
+        document.querySelector('.delete-confirm').classList.remove('after-click')
+        modalback.classList.remove('back-after');
+        console.log('삭제 완료');
+    });
+    
+    document.querySelector('.cancle').addEventListener('click',()=>{
+        modalback.classList.remove('back-after');
+        document.querySelector('.delete-confirm').classList.remove('after-click')
+    })
     });
 });

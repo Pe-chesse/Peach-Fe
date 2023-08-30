@@ -1,28 +1,7 @@
 /* search page */
 
 .wrapper {
-    width: 100%;
     overflow: hidden;
-}
-
-.top-area {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    padding: 15px 8px;
-    border-bottom: 1px solid #dbdbdb;
-}
-
-.top-area img {
-    width: 24px;
-    height: 24px;
-    justify-content: flex-end;
-    flex-grow: 1;
-}
-
-.top-area p {   
-    font-size: large;
 }
 
 .prev-button {
