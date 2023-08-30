@@ -8,8 +8,9 @@ const firebaseCongif = {
     mesurementid : config.MEASUREMENT_ID,
 };
 
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, sendEmailVerification, signOut } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
 const app = initializeApp(firebaseCongif);
 const auth = getAuth();
@@ -59,3 +60,4 @@ loginbtn.addEventListener('click',(e)=>{
         console.log(errorMessage)
     })
 })
+

@@ -21,6 +21,7 @@ body::-webkit-scrollbar {
 .top-area img {
     width: 24px;
     height: 24px;
+    cursor: pointer;
 }
 
 .top-area a {   
@@ -386,6 +387,7 @@ section form .email {
     font-weight: bold;
     vertical-align: center;
     line-height: 46px;
+    cursor: pointer;
 }
 
 .member-modal li p {
@@ -450,6 +452,7 @@ section form .email {
     width:100%;
     border-right: 1px solid #dbdbdb;
     line-height: 65px;
+    cursor: pointer;
 }
 
 .member-logout li:last-child {
