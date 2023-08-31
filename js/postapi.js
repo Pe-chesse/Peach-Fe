@@ -43,7 +43,7 @@ onAuthStateChanged(auth, (user)=>{
     }
     else{
         document.querySelector('body').innerHTML=''
-        window.location.href="/html/return.html"
+        window.location.href="./return.html"
     }
 })
 

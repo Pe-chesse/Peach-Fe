@@ -56,5 +56,5 @@ document.querySelector('.next-btn').addEventListener('click',(e)=>{
 })
 
 document.querySelector('.check-btn').addEventListener('click',(e)=>{
-    window.location.href='/loginpage.html'
+    window.location.href='./loginpage.html'
 })
