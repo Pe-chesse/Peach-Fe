@@ -21,7 +21,7 @@ logoutbtn.addEventListener('click',(e)=>{
     e.preventDefault();
     signOut(auth)
     .then((res)=>{
-        window.location.href="/"
+        window.location.href="../index.html"
     })
     .catch((err)=>{
         const errorCode = err.code
