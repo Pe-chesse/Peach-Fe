@@ -1,4 +1,4 @@
-const firebaseCongif = {
+const firebaseConfig = {
     apiKey: config.FIREBASE_KEY,
     authDomain: config.AUTH_DOMAIN,
     projectId: config.PROJECT_ID,
@@ -13,7 +13,7 @@ const firebaseCongif = {
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
-const app = initializeApp(firebaseCongif);
+const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const baseurl = 'http://3.37.239.49/'
 
@@ -23,6 +23,7 @@ onAuthStateChanged(auth, (user)=>{
             console.log(res)
             return res
         })
+        console.log(idtoken)
         const contentPost = async()=>{
             const result = await fetch(`${baseurl}`+'api/v1/post',{
                 method : "GET",
