@@ -20,10 +20,8 @@ const baseurl = 'http://3.37.239.49/'
 onAuthStateChanged(auth, (user)=>{
     if(user){
         const idtoken = auth.currentUser.getIdToken().then((res)=>{
-            console.log(res)
             return res
         })
-        console.log(idtoken)
         const contentPost = async()=>{
             const result = await fetch(`${baseurl}`+'api/v1/post',{
                 method : "GET",
@@ -33,7 +31,51 @@ onAuthStateChanged(auth, (user)=>{
                 return res.json()
             })
             .then((res)=>{
-                console.log(res)
+                let sortContent = [...res]
+                sortContent.sort((a,b) => (a.id < b.id ? 1 : -1))
+                if(res.legnth < 1){
+                    return (
+                        `<div class="logo">
+                            <img src="../img/Peach_logo.PNG" alt="복숭아_로고"/>
+                            <div class="search-btn">
+                                <button>검색하기</button>
+                            </div>
+                        </div>`
+                    )
+                }else{
+                    let result = sortContent.map((a,i)=>{
+                            return(
+                    `<article class="post">
+                        <div class="post-userinfo">
+                            <div class="post-userinfo-img">
+                                <img src="../img/peach_cha.png" alt="post-profile-img"/>
+                            </div>
+                            <h2 class="user-nick">${sortContent[i].user.nickname}</h2>
+                            <i class="post-side-icon"><img src="../img/post_side_icon.png" alt="post-side-icon"/></i>
+                        </div><!--//post-userinfo-->
+        
+                        <div class="post-content">
+                            <p>${sortContent[i].body}</p>
+                        </div>
+        
+                        <div class="post-state">
+                            <div class="post-like">
+                                <img src="../img/heart_off.png" alt="post-heart"/>
+                                <p class="like-count">${sortContent[i].like_length}</p>
+                            </div>
+                            <div class="post-comment">
+                                <img src="../img/icon_comment.png" alt="post-comment"/>
+                                <p class="comment-count">${sortContent[i].comment_length}</p>
+                            </div>
+                        </div>
+                        <div class="post-date">
+                            <p>${sortContent[i].updated_at.substr(0,10)}</p>
+                        </div>
+                    </article><!--//post-->`
+                            )
+                        }).join('')
+                    document.querySelector('.content').innerHTML = result
+                }
             })
             .catch((err)=>{
                 console.log(err)
