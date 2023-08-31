@@ -4,22 +4,61 @@ prevButton.addEventListener('click', () => {
     window.location.href = './homepage.html';
 });
 
-// 검색 결과 처리
-const userSearchInput = document.getElementById('user-search');
-userSearchInput.addEventListener('input', async (event) => {
-    const searchQuery = event.target.value;
-    const response = await fetch(`http://127.0.0.1:8000/api/v1/post/search/?search_query=${searchQuery}`);
-    const data = await response.json();
+
+const firebaseConfig = {
+    apiKey: config.FIREBASE_KEY,
+    authDomain: config.AUTH_DOMAIN,
+    projectId: config.PROJECT_ID,
+    storageBucket: config.STORAGE_BUCKET,
+    messagingSenderId: config.MESSAGING_SENDER_ID,
+    appId: config.APP_ID,
+    mesurementid : config.MEASUREMENT_ID,
+};
+
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const baseurl = 'http://3.37.239.49/'
+
+const userSearchInput = document.querySelector('.userSearch');
+const searchResults = document.querySelector('.searchResults');
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        const idtoken = auth.currentUser.getIdToken().then((res) => {
+            console.log(res);
+            return res;
+        });
+        console.log(idtoken);
+        console.log(userSearchInput.value)
+        
+        const contentPost = async () => {
+            const result = await fetch(`${baseurl}` + `api/v1/account/search/?user=${userSearchInput.value}`, {
+                method: "GET",
+                Authorization: `${idtoken}`
+            })
+            .then((res) => {
+                return res.json();
+            })
+            .then((res) => {
+                console.log(res);
+                searchResults.innerHTML = '';
+                for (const user of res) {
+                    const li = document.createElement('li');
+                    li.innerHTML = userSearchInput.value;
+                    searchResults.appendChild(li);
+                }
+            })
+        .catch((err) => {
+                console.log(err);
+            });
+        };
+        document.querySelector('.top-area').addEventListener("submit", (event) => {
+            event.preventDefault();
+            contentPost();
+        });
+    }
 });
-
-// tab-menu
-// const tabMenuElements = document.querySelectorAll('.tab-menu-elements li');
-
-// tabMenuElements.forEach(element => {
-//     element.addEventListener('click', () => {
-//     tabMenuElements.forEach(otherElement => {
-//     otherElement.classList.remove('on');
-//     });
-//     element.classList.add('on');
-// });
-// });
