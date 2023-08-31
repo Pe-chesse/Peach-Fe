@@ -24,7 +24,7 @@ const auth = getAuth();
 const baseurl = 'http://3.37.239.49/'
 
 const userSearchInput = document.querySelector('.userSearch');
-const searchResults = document.querySelector('.searchResults');
+const searchResults = document.querySelector('.container');
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -46,11 +46,18 @@ onAuthStateChanged(auth, (user) => {
             .then((res) => {
                 console.log(res);
                 searchResults.innerHTML = '';
-                for (const user of res) {
-                    const li = document.createElement('li');
-                    li.innerHTML = userSearchInput.value;
-                    searchResults.appendChild(li);
-                }
+                res.forEach((user) => {
+                    const profileImg = document.createElement('img');
+                    profileImg.src = user.image_url??'/img/peach-user.png'
+                    // css 추가
+                    profileImg.style.width='40px';
+                    profileImg.style.height='40px';
+                    //
+                    searchResults.appendChild(profileImg);
+                    const nickname = document.createElement('p');
+                    nickname.textContent = user.nickname;
+                    searchResults.appendChild(nickname);
+                });
             })
         .catch((err) => {
                 console.log(err);
@@ -62,3 +69,14 @@ onAuthStateChanged(auth, (user) => {
         });
     }
 });
+
+// // profileImg와 nickname을 수평으로 배치하기 위해 flexbox를 사용합니다.
+// searchResults.style.display = 'flex';
+// searchResults.style.flexDirection = 'row';
+
+// // profileImg와 nickname의 너비를 동일하게 설정합니다.
+// profileImg.style.width = '40px';
+// nickname.style.width = '40px';
+
+// // profileImg와 nickname의 간격을 10px로 설정합니다.
+// profileImg.style.marginLeft = '10px';
