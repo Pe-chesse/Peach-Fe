@@ -1,8 +1,10 @@
 // search.html 이동
-const SearchBtn = document.querySelector('.Searchbtn');
-SearchBtn.addEventListener('click', () => {
-    window.location.href = 'searchpage.html';
-});
+if(document.querySelector('.wrapper').classList.contains('logo')){
+    const SearchBtn = document.querySelector('.Searchbtn');
+    SearchBtn.addEventListener('click', () => {
+        window.location.href = 'searchpage.html';
+    });
+}
 
 // tab-menu
 // const tabMenuElements = document.querySelectorAll('.tab-menu-elements li');
