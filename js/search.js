@@ -1,7 +1,7 @@
 // homepage.html 이동
 const prevButton = document.querySelector('.prev-button');
 prevButton.addEventListener('click', () => {
-    window.location.href = 'homepage.html';
+    window.location.href = './homepage.html';
 });
 
 // 검색 결과 처리
