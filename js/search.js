@@ -81,14 +81,3 @@ onAuthStateChanged(auth, (user) => {
         });
     }
 });
-
-// // profileImg와 nickname을 수평으로 배치하기 위해 flexbox를 사용합니다.
-// searchResults.style.display = 'flex';
-// searchResults.style.flexDirection = 'row';
-
-// // profileImg와 nickname의 너비를 동일하게 설정합니다.
-// profileImg.style.width = '40px';
-// nickname.style.width = '40px';
-
-// // profileImg와 nickname의 간격을 10px로 설정합니다.
-// profileImg.style.marginLeft = '10px';
