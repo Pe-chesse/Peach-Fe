@@ -34,7 +34,6 @@ onAuthStateChanged(auth, (user) => {
         });
         console.log(idtoken);
         console.log(userSearchInput.value)
-        
         const contentPost = async () => {
             const result = await fetch(`${baseurl}` + `api/v1/account/search/?user=${userSearchInput.value}`, {
                 method: "GET",
@@ -47,16 +46,29 @@ onAuthStateChanged(auth, (user) => {
                 console.log(res);
                 searchResults.innerHTML = '';
                 res.forEach((user) => {
+                    // 유저가 검색한 이름 색상 변경
+                    let insertpoint = user.nickname.indexOf(`${userSearchInput.value}`)
+                    let startingSlice = user.nickname.slice(0, insertpoint);
+                    let insertText = `<span class="keyword">${userSearchInput.value}</span>`
+                    let lastSlice = user.nickname.slice(insertpoint , user.nickname.length).replace(`${userSearchInput.value}`,'')
+                    let sumNickname = startingSlice + insertText + lastSlice;
+
+                    // html 요소 추가
                     const profileImg = document.createElement('img');
-                    profileImg.src = user.image_url??'/img/peach_cha.png'
-                    // css 추가
-                    profileImg.style.width='40px';
-                    profileImg.style.height='40px';
-                    //
-                    searchResults.appendChild(profileImg);
+                    const div = document.createElement('div');
                     const nickname = document.createElement('p');
-                    nickname.textContent = user.nickname;
-                    searchResults.appendChild(nickname);
+                    const a = document.createElement('a')
+                    searchResults.appendChild(div)
+                    div.setAttribute('class','searched-user')
+                    div.appendChild(a)
+                    a.appendChild(profileImg)
+                    a.setAttribute('href',"./your_profile.html")
+                    profileImg.setAttribute('src',`${user.image_url == null || user.image_url == ' ' ? '../img/peach_cha.png' : user.image_url}`)
+                    profileImg.setAttribute('alt',"user-profile-image")
+                    a.appendChild(nickname)
+                    nickname.setAttribute('class','searched-user-nick')
+                    nickname.innerHTML = sumNickname
+
                 });
             })
         .catch((err) => {
