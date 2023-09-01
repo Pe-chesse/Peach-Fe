@@ -48,7 +48,7 @@ onAuthStateChanged(auth, (user) => {
                 searchResults.innerHTML = '';
                 res.forEach((user) => {
                     const profileImg = document.createElement('img');
-                    profileImg.src = user.image_url??'/img/peach-user.png'
+                    profileImg.src = user.image_url??'/img/peach_cha.png'
                     // css 추가
                     profileImg.style.width='40px';
                     profileImg.style.height='40px';
