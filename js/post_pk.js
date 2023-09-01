@@ -76,6 +76,8 @@ writePostId = 25;
         const diffTime = nowTime.getTime() - updatedTime.getTime();
         let viewTime = `${Math.floor(diffTime/(60*60*1000))}시간 전`;
         document.querySelector("#update-time").textContent = viewTime;
+        // 댓글 user 이미지 가져오기
+        document.querySelector('.comment-write-area img').setAttribute('src', res.user.image_url == null || res.user.image_url == '' ? '../img/peach_cha.png' : res.user.image_url)
         for(let i=0; i<postContent.image_url.length; i++){
             imgArea.innerHTML += `<img class="posting-img" src="${postContent.image_url[i]}" alt="posting-img"/>`;
         }

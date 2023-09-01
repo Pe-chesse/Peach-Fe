@@ -118,9 +118,11 @@
 }
 
 #comment-user {
-    width: 40px; /* Adjust width as needed */
-    height: 40px; /* Adjust height as needed */
-    margin-right: 10px; /* Adjust margin as needed */
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 30px;
+    border: 1px solid #ffbfbf;
 }
 
 .comment-time{
@@ -147,7 +149,9 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    background-color: white;
 }
+
 
 #comment-input{
     border: none;
