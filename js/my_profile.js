@@ -52,7 +52,7 @@ onAuthStateChanged(auth, (user)=>{
                 // 상단 user 프로필 소개
                 document.querySelector('.followers').innerHTML = res.user.followers_length
                 document.querySelector('.followings').innerHTML = res.user.followings_length
-                document.querySelector('.profile-img img').setAttribute('src',res.user.image_url??'/img/peach_cha.png')
+                document.querySelector('.profile-img img').setAttribute('src', res.user.image_url == null || res.user.image_url == '' ? '../img/peach_cha.png' : res.user.image_url)
                 document.querySelector('.user-nickname').innerHTML = res.user.nickname
                 document.querySelector('.user-des').innerHTML = res.user.description
                 // 사용자의 게시글

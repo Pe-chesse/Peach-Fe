@@ -3,8 +3,7 @@ const user = JSON.parse(sessionStorage.user)
 const idtoken = user.stsTokenManager.accessToken
 const baseurl = 'http://3.37.239.49/'
 
-
-console.log(idtoken)
+console.log(user)
 const loadContent = async()=>{
     const result = await fetch(`${baseurl}api/v1/post/`,{
         method : "GET",
@@ -18,6 +17,7 @@ const loadContent = async()=>{
     .then((res)=>{
         let sortContent = [...res]
         sortContent.sort((a,b) => (a.id < b.id ? 1 : -1))
+
         if(res.legnth < 1){
             return (
                 `<div class="logo">
@@ -29,7 +29,7 @@ const loadContent = async()=>{
             )
         }else{
             let result = sortContent.map((a,i)=>{
-
+                console.log(sortContent[i].user.image_url)
                 function time(date) {
                     const seconds = 1;
                     const minute = seconds * 60;
@@ -57,14 +57,13 @@ const loadContent = async()=>{
                     
                     return elapsedText;
                 }
-                console.log(time())
 
                     return(
                 `
                 <article class="post" id=${sortContent[i].id}>
                     <div class="post-userinfo">
                         <div class="post-userinfo-img">
-                            ${sortContent[i].user.image_url == null || " " ? `<img src="../img/peach_cha.png" alt="post-profile-img"/>` :`<img src="${sortContent[i].user.image_url}" alt="user-profile-image"/>`}
+                            ${sortContent[i].user.image_url == null || "" ? `<img src="../img/peach_cha.png" alt="post-profile-img"/>` :`<img src="${sortContent[i].user.image_url}" alt="user-profile-image"/>`}
                         </div>
                         
                         <h2 class="user-nick"><a href="./your_profile.html">${sortContent[i].user.nickname}</a></h2>
@@ -94,6 +93,7 @@ const loadContent = async()=>{
             `
                     )
                 }).join('')
+                
             document.querySelector('.content').innerHTML = result;
             setLikecount(sortContent,result)
         }

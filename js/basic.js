@@ -3,9 +3,18 @@ const tabMenuElements = document.querySelectorAll('.tab-menu-elements li');
 
 tabMenuElements.forEach(element => {
     element.addEventListener('click', () => {
-    tabMenuElements.forEach(otherElement => {
-    otherElement.classList.remove('on');
+        tabMenuElements.forEach(otherElement => {
+            otherElement.classList.remove('on');
+        });
+        element.classList.add('on');
     });
-    element.classList.add('on');
 });
-});
+
+function moveProfile(){
+    const user = JSON.parse(sessionStorage.user)
+    const idtoken = user.stsTokenManager.accessToken
+    const baseurl = 'http://3.37.239.49/'
+    const nickname = user.providerData[0].displayName
+    document.querySelector('.tab-menu-profile a').setAttribute('href',`./my_profile.html?nickname=${nickname}`) 
+}
+moveProfile()
