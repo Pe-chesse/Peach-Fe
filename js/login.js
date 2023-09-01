@@ -49,6 +49,7 @@ loginbtn.addEventListener('click',(e)=>{
         }
         else{
             window.location.href='./profile.html'
+            window.sessionStorage.setItem('user', JSON.stringify(auth.currentUser) )
         }
         })
     .catch((error)=>{
