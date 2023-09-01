@@ -20,22 +20,24 @@
             <div class="main-profile-follow">
                 <a href="./followers.html">
                     <div>
-                        <h3>2950</h3>
+                        <h3 class="followers"></h3>
                         <p>followers</p>
                     </div>
                 </a>
                 <div class="profile-img">
-                    <img src="../img/peach_cha.png" alt="img"/>
+                    <img src="" alt="">
                 </div>
                 <a href="./followings.html">
                     <div>
-                        <h3>128</h3>
+                        <h3 class="followings"></h3>
                         <p>followings</p>
                     </div>
                 </a>
             </div>
-            <h2>행복한 복숭아 농장</h2>
-            <p>복숭아 전국 배송, 복숭아 따기 체험, 복숭아 농장</p>
+            <div>
+                <h2 class="user-nickname"></h2>
+                <p class="user-des"></p>
+            </div>
             <i class="talk-icon"><img src="../img/icon_comment.png" alt="talk-icon"/></i>
             <div class="profile-op">
                 <a href="./my_profile_set.html">프로필 수정</a>
@@ -104,34 +106,6 @@
                     <p>2023년 08월 22일</p>
                 </div>
             </article><!--//post-->
-            <article class="post">
-                <div class="post-userinfo">
-                    <div class="post-userinfo-img">
-                        <img src="../img/peach_cha.png" alt="post-profile-img"/>
-                    </div>
-                    <h2 class="user-nick">행복한 복숭아 농장</h2>
-                    <i class="post-side-icon"><img src="../img/post_side_icon.png" alt="post-side-icon"/></i>
-                </div><!--//post-userinfo-->
-
-                <div class="post-content">
-                    <p>인생의 목적은 사랑받는 사람이 되는 것이 아니라 자기 자신이 되는거란다.<br/> 너에게는 너만이 완성할 수 있는 삶의 목적이 있고, 그것은 네 사랑으로 채워야 할 것이지 누군가의 사랑으로 채워질 수 있는 것이 아니야.</p>
-                    <img class="post-img" src="../img/station.jpg" alt="station"/>
-                </div>
-
-                <div class="post-state">
-                    <div class="post-like">
-                        <img src="../img/heart_off.png" alt="post-heart"/>
-                        <p class="like-count">30</p>
-                    </div>
-                    <div class="post-comment">
-                        <img src="../img/icon_comment.png" alt="post-comment"/>
-                        <p class="comment-count">18</p>
-                    </div>
-                </div>
-                <div class="post-date">
-                    <p>2023년 08월 22일</p>
-                </div>
-            </article><!--//post-->
         </section>
 
         <section class="member-modal">
@@ -165,7 +139,7 @@
                     <a href="./post_write.html">게시물 작성</a>
                 </li>
                 <li class="tab-menu-profile on">
-                    <a href="./my_profile.html">프로필</a>
+                    <a href="./my_profile.html?nickname=여주네 복숭아">프로필</a>
                 </li>
             </ul>
         </nav>
@@ -173,6 +147,7 @@
 
     <script src="../js/env.js"></script>
     <script src="../js/modal.js"></script>
+    <script type="module" src="../js/my_profile.js"></script>
     <script type="module" src="../js/logout.js"></script>
     <script type="module" src="../js/chat.js"></script>
 </body>
