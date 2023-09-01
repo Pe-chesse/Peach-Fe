@@ -15,7 +15,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const baseurl = "http://3.37.239.49/api/v1/";
 let idtoken;
-let myInfo;
 
 onAuthStateChanged(auth, async (user)=>{
   if(user){
@@ -32,7 +31,6 @@ onAuthStateChanged(auth, async (user)=>{
           return res.json();
       })
       .then((res)=>{
-          myInfo = res;
           document.querySelector(".profile_img").src = res.image_url;
           console.log(res);
       })
@@ -117,7 +115,8 @@ document.querySelector(".post_btn").onclick = async function (e) {
     })
     .then((res) => {
       console.log(res);
-      window.location.href=`./post_pk.html`
+      sessionStorage.setItem("write_post_id", res.id);
+      window.location.href=`./post_pk.html`;
     })
     .catch((err) => {
       console.error(err);
