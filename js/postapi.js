@@ -48,7 +48,7 @@ onAuthStateChanged(auth, (user)=>{
                     `<article class="post">
                         <div class="post-userinfo">
                             <div class="post-userinfo-img">
-                                <img src="../img/peach_cha.png" alt="post-profile-img"/>
+                                <img src="${sortContent[i].user.image_url??'../img/peach_cha.png'}" alt="post-profile-img"/>
                             </div>
                             <h2 class="user-nick">${sortContent[i].user.nickname}</h2>
                             <i class="post-side-icon"><img src="../img/post_side_icon.png" alt="post-side-icon"/></i>
