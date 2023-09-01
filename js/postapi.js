@@ -16,10 +16,8 @@ const loadContent = async()=>{
         return res.json()
     })
     .then((res)=>{
-        console.log(res)
         let sortContent = [...res]
         sortContent.sort((a,b) => (a.id < b.id ? 1 : -1))
-        console.log(sortContent)
         if(res.legnth < 1){
             return (
                 `<div class="logo">

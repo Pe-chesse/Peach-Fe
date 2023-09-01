@@ -1,7 +1,6 @@
 function setLikecount(sortContent,result){
     const likeIcon = document.querySelectorAll('.like-icon')
-    console.log(likeIcon)
-
+    
     likeIcon.forEach((icon)=>{
         icon.addEventListener('click',(e)=>{
             let clickValue = e.target.closest('.post').getAttribute('id')
@@ -20,14 +19,7 @@ function setLikecount(sortContent,result){
                     })
                 })
                 .then((res)=>{
-                    console.log(res)
-                    console.log(likeCount)
-                    if(res.status == 200){
-                        likeCount.innerText = sortContent[clickValue-1].like_length
-                    }else{
-                        likeCount.innerText = sortContent[clickValue-1].like_length
-                    }
-                    console.log(sortContent[clickValue-1].like_length)
+                    location.reload()
                 })
                 .catch((err)=>{
                     console.log(err)
