@@ -22,6 +22,7 @@ logoutbtn.addEventListener('click',(e)=>{
     signOut(auth)
     .then((res)=>{
         window.location.href="../index.html"
+        window.sessionStorage.removeItem('user')
     })
     .catch((err)=>{
         const errorCode = err.code
