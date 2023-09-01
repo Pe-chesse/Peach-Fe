@@ -13,7 +13,6 @@
     <div class="wrapper">
         <div class="top-area">
             <a href="javascript:window.history.back();"><img src="../img/arrow.png" alt="arrow"/></a>
-            <button type="button" class="post_btn">업로드</button>
         </div>
         <article class="upload container">
             <form method="post" action="" class="upload_form">
@@ -21,15 +20,23 @@
                 <label for="post-sync" class="sr-only">게시글 입력창입니다.</label>
                 <textarea class="upload_post" id="post-sync" cols="40" rows="6" maxlength="140" placeholder="게시글 입력하기..."></textarea>
                 <label for="file-sync" class="upload_img">이미지 업로드 버튼입니다.</label>
-                <input type="file" id="file-sync" accept=".png, .jpg, .jpeg" class="upload_input">
+                <input type="file" id="file-sync" accept=".png, .jpg, .jpeg" class="upload_input" multiple />
+                <button type="submit" class="post_btn">업로드</button>
             </form>
             <!-- 이미지 넣는 div -->
             <div class="img-container">
-                <div></div>
+                <span class="post-img-plus">
+                    <img class="img-set" src="../img/peach_1.png" alt="imgset"/>
+                    <button class="btn-set" type="button"><img src="../img/x.png"></button>
+                </span>
+                <span class="post-img-plus">
+                    <img class="img-set" src="../img/peach_2.png" alt="imgset"/>
+                    <button class="btn-set" type="button"><img class="btn-set-img" src="../img/x.png"></button>
+                </span>
             </div>
         </article>
     </div>
     <script src="../js/env.js"></script>
-    <script src="../js/post_write.js"></script>
+    <script type="module" src="../js/post_write.js"></script>
 </body>
 </html>

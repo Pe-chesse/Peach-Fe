@@ -53,11 +53,23 @@ article.upload {
 }
 
 .upload .img-container {
-    width: 304px;
-    height: 228px;
-    margin: 16px auto 0;
+    width: 40%;
+    height: 180px;
+    margin: 16px auto;
     display: flex;
     overflow-x: scroll;
     flex-wrap: nowrap;
-    gap: 8px;
+    gap: 16px;
+}
+
+.post-img-plus {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.btn-set {
+    display: flex;
+    position: absolute;
 }
