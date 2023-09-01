@@ -10,11 +10,26 @@ tabMenuElements.forEach(element => {
     });
 });
 
-function moveProfile(){
+function tabProfile(){
     const user = JSON.parse(sessionStorage.user)
     const idtoken = user.stsTokenManager.accessToken
     const baseurl = 'http://3.37.239.49/'
-    const nickname = user.providerData[0].displayName
-    document.querySelector('.tab-menu-profile a').setAttribute('href',`./my_profile.html?nickname=${nickname}`) 
+    const findProfile = async()=>{
+        const result = await fetch(`${baseurl}api/v1/account/verify/`,{
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${idtoken}`
+            }
+        })
+        .then((res)=>{
+            return res.json()
+        })
+        .then((res)=>{
+            console.log(res.nickname)
+            const nickname = res.nickname
+            document.querySelector('.tab-menu-profile a').setAttribute('href',`./my_profile.html?nickname=${nickname}`) 
+        })
+    }
+    findProfile()
 }
-moveProfile()
+tabProfile()
