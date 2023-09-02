@@ -78,7 +78,7 @@ const loadContent = async()=>{
 
                     <div class="post-state">
                         <div class="post-like">
-                            ${sortContent[i].is_like == false ? '<img src="../img/heart_off.png" alt="post-heart" class="like-icon"/>' : '<img src="../img/heart.png" alt="like_icon " class="like-icon/>'}
+                            ${sortContent[i].is_like == false ? '<img src="../img/heart_off.png" alt="post-heart" class="like-icon"/>' : '<img src="../img/heart.png" alt="like_icon" class="like-icon"/>'}
                             <p class="like-count">${sortContent[i].like_length}</p>
                         </div>
                         <div class="post-comment">
@@ -95,7 +95,7 @@ const loadContent = async()=>{
                 }).join('')
                 
             document.querySelector('.content').innerHTML = result;
-            setLikecount(sortContent,result)
+            setLikecount(sortContent)
             
         }
     })
