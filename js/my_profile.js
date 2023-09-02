@@ -52,6 +52,8 @@ onAuthStateChanged(auth, (user)=>{
                 function verfiyProfile (){
                     let personalInfo = JSON.parse(sessionStorage.personalInfo)
                     let findClass = document.querySelector('.profile-op')
+                    console.log(res)
+                    console.log(personalInfo)
                     if(personalInfo.nickname != res.user.nickname){
                         findClass.innerHTML = `<button>팔로우</button>`
                         findClass.classList.add('follow-btn')
