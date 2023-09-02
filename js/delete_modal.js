@@ -1,10 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const deleteButtons = document.querySelectorAll('.comment-option');
+    const postSideButton = document.querySelector('.post-user-side-icon');
+    const deleteButtons = document.querySelectorAll('.comment-list-side-icon');
     const modal = document.querySelector('.modal');
     const modalback = document.querySelector('.modal-back')
     const modalContent = document.querySelector('.modal-content');
     const closeModalButton = document.getElementById('close-modal');
     const confirmDeleteButton = document.querySelector('.confirm-delete');
+
+    postSideButton.addEventListener('click', ()=>{
+        modal.classList.toggle('after');
+        modalback.classList.toggle('back-after');
+    })
 
     deleteButtons.forEach((button) => {
         button.addEventListener('click', function () {

@@ -6,79 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/reset.css" rel="stylesheet"/>
     <link href="../css/post_pk.css" rel="stylesheet"/>
-    <title>Peach Market</title>
+    <title>Peach Market Post Detail</title>
 </head>
 <body>
     <div class="wrapper">
-
         <article class="top-area">
             <a href="javascript:window.history.back();"><img src="../img/arrow.png" alt="arrow"/></a>
-            <img src="../img/top_menu_op.png" alt="top_menu_option" class="menu-bar"/>
         </article>
 
-        <div class="posting-main">
-            <div class="post-user">
-                <img src="../img/peach-user.png" alt="peach-user" id="peach-user">
-                <div class="post-user-info">
-                    <p id="posting-user">행복한 복숭아 농장</p>
-                    <p id="update-time">4시간 전</p>
-                </div>
-            </div>
-            <div id="main-text">
-            <p>인생의 목적은 사랑받는 사람이 되는 것이 아니라 자기 자신이 되는거란다.
-                너에게는 너만이 완성할 수 있는 삶의 목적이 있고, 
-                그것은 네 사랑으로 채워야 할 것이지 누군가의 사랑으로 채워질 수 있는 것이 아니야</p>
-            </div>
-            <div class="img-area">
-                <img src="../img/peach_1.png" alt="posting-img" id="posting-img">
-                <!-- <img src="../img/img-list.png" alt="img-list" id="img-list"> -->
-            </div>
-            <div class="container">
-                <img src="../img/heart_off.png" alt="heart-img" id="heart-img">
-                <p id="heart-cnt">30</p>
-                <img src="../img/icon_comment.png" alt="comment-img" id="comment-img">
-                <p id="comment-cnt">18</p>
-            </div>
-        </div><!--//posting-main-->
+        <article class="posting-main">
+            <img class="post-user-img" src="../img/station.jpg" alt="post-user-img">
 
-        <div class="comment-area">
-            <div class="comment">
-                <div class="comment-user-info">
-                    <img src="../img/girl_icon.png" alt="girl-icon" class="user-icon">
-                    <div class="user-nick">
-                        <p id="user-id1">복자네 복숭아</p>
-                        <p class="comment-time">5분 전</p>
-                    </div>
-                    <img src="../img/post_side_icon.png" alt="comment-option" class="comment-option">
+            <div class="post-content">
+                <div class="post-content-info">
+                    <h3 class="post-content-info-nick">행복한 복숭아 농장</h3>
+                    <p class="post-content-info-time">4시간 전</p>
                 </div>
-                <p class="comment-text">좋은 글귀네요~ 좋아요 누르고 갑니다</p>
+                <div class="post-content-text">
+                    <p>인생의 목적은 사랑받는 사람이 되는 것이 아니라 자기 자신이 되는거란다. 너에게는 너만이 완성할 수 있는 삶의 목적이 있고, 그것은 네 사랑으로 채워야 할 것이지 누군가의 사랑으로 채워질 수 있는 것이 아니야.</p>
+                </div>
+                <div class="post-content-img">
+                    <!-- <img class="post-img-list" src="../img/station.jpg" alt="post-img-list"/> -->
+                </div>
+                <div class="post-state">
+                    <div class="post-state-like">
+                        <img src="../img/heart_off.png" alt="post-heart"/>
+                        <p class="like-count">30</p>
+                    </div>
+                    <div class="post-state-comment">
+                        <img src="../img/icon_comment.png" alt="post-comment"/>
+                        <p class="comment-count">18</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="comment">
-                <div class="comment-user-info">
-                    <img src="../img/man_icon.png" alt="man-icon" class="user-icon">
-                    <div class="user-nick">
-                        <p id="user-id2">홍가네 복숭아</p>
-                        <p class="comment-time">5분 전</p>
+            <img class="post-user-side-icon" src="../img/post_side_icon.png" alt="post-user-side-icon"/>
+        </article>
+
+        <article class="comment-area">
+            <!-- <div class="comment-list">
+                <img class="comment-list-img" src="../img/peach-user.png" alt="comment-list-img"/>
+                <div class="comment-list-content">
+                    <div class="comment-list-content-info">
+                        <h3 class="comment-list-content-info-user">행복한 복숭아 농장1</h3>
+                        <p class="comment-list-content-info-time">15분 전</p>
                     </div>
-                    <img src="../img/post_side_icon.png" alt="comment-option" class="comment-option">
+                    <p class="comment-list-content-text">제발 헛소리좀 하지마요..1</p>
                 </div>
-                <p class="comment-text">하늘이 너무 멋지네요 ~</p>
-            </div>
-        </div>
+                <img class="comment-list-side-icon" src="../img/post_side_icon.png" alt="comment-list-side-icon">
+            </div> -->
+        </article>
+
+        <div class="comment-blank"></div>
 
         <div class="comment-write">
             <div class="comment-write-area">
-                <img src="" alt="" id="comment-user">
-                <input type="textarea" placeholder="댓글 입력하기" id="comment-input">
-                <input type="submit" value="게시" id="commenting">
+                <img class="comment-write-area-user" src="../img/peach-user.png" alt="comment-write-area-user">
+                <input class="comment-write-area-textarea" type="textarea" placeholder="댓글 입력하기">
+                <input class="comment-write-area-submit" type="submit" value="게시">
             </div>
         </div>
+
 
         <div class="modal-back"></div>
         <section class="modal">
             <div class="modal-content">
                 <img src="../img/modal_rec.png" alt="rec-bar"/>
+                <!-- <button class="delete-btn"><p>수정</p></button> -->
                 <button class="delete-btn"><p>삭제</p></button>
             </div>
         </section>
@@ -90,7 +84,8 @@
                 <li class="delete">삭제</li>
             </ul>
         </article>
-    </div><!--//wrapper-->
+    </div>
+
     <script src="../js/env.js"></script>
     <script type="module" src="../js/post_pk.js"></script>
     <script src="../js/delete_modal.js"></script>
