@@ -19,39 +19,39 @@ let myInfo;
 let postContent;
 
 //내정보
-// onAuthStateChanged(auth, async (user)=>{
-//     if(user){
-//         idtoken = await user.getIdToken();
+onAuthStateChanged(auth, async (user)=>{
+    if(user){
+        idtoken = await user.getIdToken();
 
-//         const contentPost = async ()=>{
-//         const result = await fetch(`${baseurl}account/verify/`, {
-//             method : "GET",
-//             headers : {
-//                 Authorization: `bearer ${idtoken}`,
-//             }
-//         })
-//         .then((res)=>{
-//             return res.json();
-//         })
-//         .then((res)=>{
-//             myInfo = res;
-//             document.querySelector("#peach-user").src = myInfo.image_url;
-//             document.querySelector("#posting-user").textContent = myInfo.nickname;
-//             console.log(res);
-//         })
-//         .catch((err)=>{
-//             console.error(err);
-//         })
-//         }
-//         contentPost();
-//     }
-// })
+        const contentPost = async ()=>{
+        const result = await fetch(`${baseurl}account/verify/`, {
+            method : "GET",
+            headers : {
+                Authorization: `bearer ${idtoken}`,
+            }
+        })
+        .then((res)=>{
+            return res.json();
+        })
+        .then((res)=>{
+            myInfo = res;
+            document.querySelector(".comment-write-area-user").src = myInfo.image_url;
+            console.log(res);
+        })
+        .catch((err)=>{
+            console.error(err);
+        })
+        }
+        contentPost();
+    }
+})
 
-const imgArea = document.querySelector(".img-area");
 let writePostId = sessionStorage.getItem("write_post_id");
 sessionStorage.removeItem("write_post_id");
 // console.log(writePostId)
-writePostId = 25;
+if(writePostId === null){
+    writePostId = 25;//test post id
+}
 
 //포스트정보
 (async function() {
@@ -68,20 +68,34 @@ writePostId = 25;
     .then((res) => {
         console.log(res);
         postContent = res;
-        document.querySelector("#peach-user").src = postContent.user.image_url;
-        document.querySelector("#posting-user").textContent = postContent.user.nickname;
-        document.querySelector("#main-text").innerHTML = `<p>${postContent.body}</p>`;
+        document.querySelector(".post-user-img").src = postContent.user.image_url;
+        document.querySelector(".post-content-info-nick").textContent = postContent.user.nickname;
         const updatedTime = new Date(postContent.updated_at);
         const nowTime = new Date();
         const diffTime = nowTime.getTime() - updatedTime.getTime();
         let viewTime = `${Math.floor(diffTime/(60*60*1000))}시간 전`;
-        document.querySelector("#update-time").textContent = viewTime;
-        // 댓글 user 이미지 가져오기
-        document.querySelector('.comment-write-area img').setAttribute('src', res.user.image_url == null || res.user.image_url == '' ? '../img/peach_cha.png' : res.user.image_url)
+        document.querySelector(".post-content-info-time").textContent = viewTime;
+        document.querySelector(".post-content-text").innerHTML = `<p>${postContent.body}</p>`;
         for(let i=0; i<postContent.image_url.length; i++){
-            imgArea.innerHTML += `<img class="posting-img" src="${postContent.image_url[i]}" alt="posting-img"/>`;
+            document.querySelector(".post-content-img").innerHTML += `<img class="post-img-list" src="${postContent.image_url[i]}" alt="post-img-list"/>`;
         }
-        document.querySelector("#heart-cnt").textContent = postContent.like_length;
+        document.querySelector(".like-count").textContent = postContent.like_length;
+
+        for(let i=0; i<postContent.comment_set.length; i++){
+            let commentHtml = `
+            <div class="comment-list">
+                <img class="comment-list-img" src="../img/peach-user.png" alt="comment-list-img"/>
+                <div class="comment-list-content">
+                    <div class="comment-list-content-info">
+                        <h3 class="comment-list-content-info-user">행복한 복숭아 농장</h3>
+                        <p class="comment-list-content-info-time">5분 전</p>
+                    </div>
+                    <p class="comment-list-content-text">제발 헛소리좀 하지마요..</p>
+                </div>
+                <img class="comment-list-side-icon" src="../img/post_side_icon.png" alt="comment-list-side-icon">
+            </div>`;
+            document.querySelector(".comment-area").innerHTML += commentHtml;
+        }
     })
     .catch((err) => {
         console.error(err);
@@ -89,14 +103,43 @@ writePostId = 25;
 })();
 
 
+// `${baseurl}post/${writePostId}/` 댓글
+// `${baseurl}post/comment/44/` 대댓글
 
-const commentInput = document.getElementById('comment-input');
-const commentingButton = document.getElementById('commenting');
+//댓글 보내기
+document.querySelector(".comment-write-area-submit").onclick = async function (e) {
+    let body = {
+        body: document.querySelector(".comment-write-area-textarea").value,
+    };
+    console.log(body);
 
-commentInput.addEventListener('input', function () {
-    if (commentInput.value.trim() !== '') {
-        commentingButton.style.color = '#FFBFBF';
-    } else {
-        commentingButton.style.color = '#C4C4C4';
-    }
-});
+    await fetch(`${baseurl}post/${writePostId}/`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `bearer ${idtoken}`,
+        },
+    body: JSON.stringify(body),
+    })
+    .then((res) => {
+        return res.json();
+    })
+    .then((res) => {
+        console.log(res);
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+};
+
+
+// const commentInput = document.getElementById('comment-input');
+// const commentingButton = document.getElementById('commenting');
+
+// commentInput.addEventListener('input', function () {
+//     if (commentInput.value.trim() !== '') {
+//         commentingButton.style.color = '#FFBFBF';
+//     } else {
+//         commentingButton.style.color = '#C4C4C4';
+//     }
+// });
