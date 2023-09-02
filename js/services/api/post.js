@@ -16,7 +16,7 @@ class PostAPI {
 
   async write(body) {
     try {
-      return await this.dio.post(baseURL.post.home, { body: body });
+      return await this.dio.post(baseURL.post.home, body);
     } catch (error) {
       return error;
     }
@@ -40,9 +40,7 @@ class PostAPI {
 
   async edit(postId, body) {
     try {
-      return await this.dio.put(`${baseURL.post.home}${postId}/`, {
-        body: body,
-      });
+      return await this.dio.put(`${baseURL.post.home}${postId}/`, body);
     } catch (error) {
       return error;
     }
