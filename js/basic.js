@@ -25,7 +25,6 @@ function tabProfile(){
             return res.json()
         })
         .then((res)=>{
-            console.log(res.nickname)
             const nickname = res.nickname
             document.querySelector('.tab-menu-profile a').setAttribute('href',`./my_profile.html?nickname=${nickname}`) 
         })

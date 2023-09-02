@@ -11,6 +11,8 @@ const firebaseConfig = {
   mesurementid : config.MEASUREMENT_ID,
 };
 
+
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const baseurl = "http://3.37.239.49/api/v1/";
@@ -74,11 +76,28 @@ document.querySelector(".start-btn").onclick = async function (e) {
     },
     body: JSON.stringify(body),
   })
-    .then((res) => {
-      console.log(res);
-      window.location.href="./homepage.html"
+    .then( async (res) => {
+      await fetch(`${baseurl}account/verify/`,{
+        method : "GET",
+        headers: {
+          Authorization: `bearer ${idtoken}`
+        }
+      })
+      .then((res)=>{
+        return res.json()
+      })
+      .then((res)=>{
+        console.log(res)
+        window.sessionStorage.setItem('personalInfo',JSON.stringify(res))
+        window.location.href="./homepage.html"
+      })
+      .cathc((err)=>{
+        console.log(err)
+      })
     })
     .catch((err) => {
       console.error(err);
     });
 };
+
+
