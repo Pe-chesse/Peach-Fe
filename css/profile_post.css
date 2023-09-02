@@ -125,6 +125,7 @@ section form .email {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .follow-btn button {
@@ -136,6 +137,7 @@ section form .email {
     border: none;
     color :#fff;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .profile-op {

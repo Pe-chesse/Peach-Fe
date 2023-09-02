@@ -20,7 +20,6 @@ const baseurl = 'http://3.37.239.49/'
 onAuthStateChanged(auth, (user)=>{
     if(user){
         const idtoken = auth.currentUser.getIdToken().then((res)=>{
-            console.log(res)
             return res
         })
         // 현재 URL의 쿼리 문자열을 가져옴
@@ -48,7 +47,21 @@ onAuthStateChanged(auth, (user)=>{
                 return res.json()
             })
             .then((res)=>{
-                console.log(res)
+                checkFollow(res)
+                // 프로필 검증
+                function verfiyProfile (){
+                    let personalInfo = JSON.parse(sessionStorage.personalInfo)
+                    let findClass = document.querySelector('.profile-op')
+                    if(personalInfo.nickname != res.user.nickname){
+                        findClass.innerHTML = `<button>팔로우</button>`
+                        findClass.classList.add('follow-btn')
+                        document.querySelector('.tab-menu-profile').classList.remove('on')
+                    }else{
+                        findClass.innerHTML = `<a href="./my_profile_set.html">프로필 수정</a>
+                        <a href="./product_write.html">상품 등록</a>`
+                    }
+                }
+                verfiyProfile()
                 // 상단 user 프로필 소개
                 document.querySelector('.followers').innerHTML = res.user.followers_length
                 document.querySelector('.followings').innerHTML = res.user.followings_length
@@ -72,7 +85,6 @@ onAuthStateChanged(auth, (user)=>{
                         document.querySelector('.post-date').innerHTML = post_date;
                     });
                 }
-                
             })
             .catch((err)=>{
                 console.log(err)
@@ -82,6 +94,12 @@ onAuthStateChanged(auth, (user)=>{
     }
     else{
         document.querySelector('body').innerHTML=''
-        window.location.href="/html/return.html"
+        window.location.href="./return.html"
     }
 })
+
+
+
+
+
+

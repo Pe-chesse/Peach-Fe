@@ -46,6 +46,8 @@ onAuthStateChanged(auth, (user) => {
                 console.log(res);
                 searchResults.innerHTML = '';
                 res.forEach((user) => {
+                    
+                    console.log(user)
                     // 유저가 검색한 이름 색상 변경
                     let insertpoint = user.nickname.indexOf(`${userSearchInput.value}`)
                     let startingSlice = user.nickname.slice(0, insertpoint);
@@ -62,13 +64,12 @@ onAuthStateChanged(auth, (user) => {
                     div.setAttribute('class','searched-user')
                     div.appendChild(a)
                     a.appendChild(profileImg)
-                    a.setAttribute('href',"./your_profile.html")
+                    a.setAttribute('href',`my_profile.html?nickname=${user.nickname}`)
                     profileImg.setAttribute('src',`${user.image_url == null || user.image_url == ' ' ? '../img/peach_cha.png' : user.image_url}`)
                     profileImg.setAttribute('alt',"user-profile-image")
                     a.appendChild(nickname)
                     nickname.setAttribute('class','searched-user-nick')
                     nickname.innerHTML = sumNickname
-
                 });
             })
         .catch((err) => {

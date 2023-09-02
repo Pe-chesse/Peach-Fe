@@ -23,8 +23,6 @@ loginbtn.addEventListener('click',(e)=>{
     let password = document.querySelector('.password').value;
     signInWithEmailAndPassword(auth,email,password)
     .then((res)=>{
-        let result = res
-        console.log(result)
         if(auth.currentUser.emailVerified === false){
             document.querySelector('.email-verify').classList.add('disfl')
             setTimeout(() => {
@@ -48,9 +46,38 @@ loginbtn.addEventListener('click',(e)=>{
             })
         }
         else{
-            window.location.href='./profile.html'
             window.sessionStorage.setItem('user', JSON.stringify(auth.currentUser) )
         }
+        })
+        .then((res)=>{
+            const user = JSON.parse(sessionStorage.user)
+            const idtoken = user.stsTokenManager.accessToken
+            const baseurl = 'http://3.37.239.49/'
+            console.log(user)
+            const filterNewUser = async()=>{
+                const result = await fetch(`${baseurl}api/v1/account/verify/`,{
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${idtoken}`
+                    }
+                })
+                .then((res)=>{
+                    return res.json()
+                })
+                .then((res)=>{
+                    if(res.nickname !== null && res.nickname !== " "){
+                        window.sessionStorage.setItem('personalInfo',JSON.stringify(res))
+                        window.location.href="./homepage.html"
+                    }
+                    else{
+                        window.location.href="./profile.html"
+                    }
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+            }
+            filterNewUser()
         })
     .catch((error)=>{
         document.querySelector('.login-warn').style.opacity=1

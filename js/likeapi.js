@@ -1,12 +1,10 @@
-function setLikecount(sortContent,result){
+function setLikecount(sortContent){
     const likeIcon = document.querySelectorAll('.like-icon')
     
     likeIcon.forEach((icon)=>{
         icon.addEventListener('click',(e)=>{
             let clickValue = e.target.closest('.post').getAttribute('id')
             console.log(clickValue)
-            let likeCount = e.target.nextElementSibling
-            console.log(sortContent[clickValue-1].like_length)
             const likeToggle = async()=>{
                 const result = await fetch(`${baseurl}api/v1/post/like/`,{
                     method : "POST",
@@ -19,7 +17,11 @@ function setLikecount(sortContent,result){
                     })
                 })
                 .then((res)=>{
-                    location.reload()
+                    console.log(res)
+                    console.log(sortContent)
+                })
+                .then((res)=>{
+                    window.location.reload(true)
                 })
                 .catch((err)=>{
                     console.log(err)

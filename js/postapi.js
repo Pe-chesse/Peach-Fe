@@ -17,7 +17,7 @@ const loadContent = async()=>{
     .then((res)=>{
         let sortContent = [...res]
         sortContent.sort((a,b) => (a.id < b.id ? 1 : -1))
-
+        console.log(sortContent)
         if(res.legnth < 1){
             return (
                 `<div class="logo">
@@ -66,7 +66,7 @@ const loadContent = async()=>{
                             ${sortContent[i].user.image_url == null || "" ? `<img src="../img/peach_cha.png" alt="post-profile-img"/>` :`<img src="${sortContent[i].user.image_url}" alt="user-profile-image"/>`}
                         </div>
                         
-                        <h2 class="user-nick"><a href="./your_profile.html">${sortContent[i].user.nickname}</a></h2>
+                        <h2 class="user-nick"><a href="./my_profile.html?nickname=${sortContent[i].user.nickname}">${sortContent[i].user.nickname}</a></h2>
                         <p class="timepass">${time()}</p>
                         
                         <i class="post-side-icon"><img src="../img/post_side_icon.png" alt="post-side-icon"/></i>
@@ -96,8 +96,8 @@ const loadContent = async()=>{
                 
             document.querySelector('.content').innerHTML = result;
             setLikecount(sortContent,result)
+            
         }
-        
     })
     .catch((err)=>{
         console.log(err)
