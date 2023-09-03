@@ -15,7 +15,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const baseurl = "http://3.37.239.49/api/v1/";
 let idtoken;
-let myInfo;
 let postContent;
 
 //내정보
@@ -34,14 +33,15 @@ onAuthStateChanged(auth, async (user)=>{
             return res.json();
         })
         .then((res)=>{
-            myInfo = res;
-            document.querySelector(".comment-write-area-user").src = myInfo.image_url;
+            console.log(res)
+            document.querySelector(".comment-write-area-user").src = res.image_url??'../img/peach_cha.png'
+
             console.log(res);
         })
         .catch((err)=>{
             console.error(err);
         })
-        }
+    }
         contentPost();
     }
 })
