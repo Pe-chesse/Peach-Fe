@@ -31,6 +31,7 @@ export default async function oAuth() {
       try {
         const response = await api.account.verify();
         userInfo = new User(response);
+        firebaseUserInfo = user;
         resolve(userInfo); // userInfo 반환
       } catch (e) {
         console.log(e);
@@ -41,3 +42,4 @@ export default async function oAuth() {
 }
 
 export let userInfo;
+export let firebaseUserInfo;

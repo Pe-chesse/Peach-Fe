@@ -4,25 +4,26 @@ import ChatAPI from "./api/chat.js";
 import PostAPI from "./api/post.js";
 import CommentAPI from "./api/comment.js";
 
-const base = "http://3.37.239.49/api/v1/";
+export const address = "3.37.239.49";
+const baseurl = `http://${address}/api/v1/`;
 export const baseURL = {
-  base: base,
+  base: baseurl,
   account: {
-    verify: base + "account/verify/",
-    profile: base + "account/profile/",
-    follow: base + "account/follow/",
-    search: base + "account/search/",
+    verify: baseurl + "account/verify/",
+    profile: baseurl + "account/profile/",
+    follow: baseurl + "account/follow/",
+    search: baseurl + "account/search/",
   },
   bucket: {
-    media: base + "bucket/media/",
+    media: baseurl + "bucket/media/",
   },
   chat: {
-    create: base + "chat/create/",
+    create: baseurl + "chat/create/",
   },
   post: {
-    home: base + "post/",
-    like: base + "post/like/",
-    comment: base + "post/comment/",
+    home: baseurl + "post/",
+    like: baseurl + "post/like/",
+    comment: baseurl + "post/comment/",
   },
 };
 

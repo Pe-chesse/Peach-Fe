@@ -1,10 +1,11 @@
 import oAuth from "./providers/oauth.js";
 import { userInfo } from "./providers/oauth.js";
-import User from "./models/user.js";
+import { getUser } from "./services/ws.js";
 
 async function basic() {
   await oAuth();
   if (userInfo) {
+    getUser();
     document
       .querySelector(".tab-menu-profile a")
       .setAttribute("href", `./my_profile.html?nickname=${userInfo.nickname}`);
@@ -22,23 +23,3 @@ async function basic() {
   });
 }
 basic();
-
-// function tabProfile() {
-//   const findProfile = async () => {
-//     const result = await fetch(`${baseurl}api/v1/account/verify/`, {
-//       method: "GET",
-//       headers: {
-//         Authorization: `Bearer ${idtoken}`,
-//       },
-//     })
-//       .then((res) => {
-//         return res.json();
-//       })
-//       .then((res) => {
-//         const nickname = res.nickname;
-//
-//       });
-//   };
-//   findProfile();
-// }
-// tabProfile();
