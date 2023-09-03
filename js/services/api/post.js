@@ -1,7 +1,7 @@
 import { Dio } from "../../utils/dio.js";
 import { baseURL } from "../api.js";
 
-class PostAPI {
+export default class PostAPI {
   constructor() {
     this.dio = new Dio();
   }
