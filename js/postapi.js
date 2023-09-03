@@ -70,9 +70,9 @@ const loadContent = async()=>{
                         <p class="timepass">${time()}</p>
                         
                     </div><!--//post-userinfo-->
-
+                    <a href="./post_pk.html" onclick="sessionStorage.setItem('write_post_id', ${sortContent[i].id});">
                     <div class="post-content">
-                    <a href="./post_pk.html" onclick="sessionStorage.setItem('write_post_id', ${sortContent[i].id});"><p>${sortContent[i].body}</p></a>
+                    <p>${sortContent[i].body}</p>
                     </div>
 
                     <div class="post-state">
@@ -88,6 +88,7 @@ const loadContent = async()=>{
                     <div class="post-date">
                         <p>${sortContent[i].updated_at.substr(0,10)}</p>
                     </div>
+                    </a>
                 </article><!--//post-->
             `
                     )
