@@ -31,7 +31,7 @@ onAuthStateChanged(auth, async (user)=>{
           return res.json();
       })
       .then((res)=>{
-          document.querySelector(".profile_img").src = res.image_url;
+          document.querySelector(".profile_img").src = res.image_url == null || res.image_url == ' '?'../img/peach_cha.png' : res.image_url;
           console.log(res);
       })
       .catch((err)=>{

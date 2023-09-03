@@ -23,6 +23,8 @@ logoutbtn.addEventListener('click',(e)=>{
     .then((res)=>{
         window.location.href="../index.html"
         window.sessionStorage.removeItem('user')
+        window.sessionStorage.removeItem('personalInfo')
+        window.sessionStorage.removeItem('usernick')
     })
     .catch((err)=>{
         const errorCode = err.code

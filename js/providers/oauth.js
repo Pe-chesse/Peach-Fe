@@ -6,36 +6,51 @@ import {
 import { api } from "../services/api.js";
 import User from "../models/user.js";
 
-const allowPage = ["*"];
-
-const firebaseConfig = {
-  apiKey: config.FIREBASE_KEY,
-  authDomain: config.AUTH_DOMAIN,
-  projectId: config.PROJECT_ID,
-  storageBucket: config.STORAGE_BUCKET,
-  messagingSenderId: config.MESSAGING_SENDER_ID,
-  appId: config.APP_ID,
-  mesurementid: config.MEASUREMENT_ID,
-};
+const allowPage = [
+  "",
+  "index.html",
+  "loginpage.html",
+  "join.html",
+  "post_pk.html",
+];
 
 export default async function oAuth() {
   const app = initializeApp(firebaseConfig);
-  const auth = getAuth();
+  const auth = getAuth(app);
 
   return new Promise(async (resolve, reject) => {
     onAuthStateChanged(auth, async (user) => {
       const currentEndpoint = window.location.pathname;
+      const path = window.location.pathname.split("/");
+      const currentPath = path[path.length - 1];
+      console.log(currentPath);
       if (!user && allowPage.includes(currentEndpoint)) {
-        return (window.location.href = "./return.html");
+        // return (window.location.href = "/index.html");
       }
+      window.sessionStorage.setItem("user", JSON.stringify(user));
       try {
+        function delay(ms) {
+          return new Promise((resolve) => setTimeout(resolve, ms));
+        }
         const response = await api.account.verify();
         userInfo = new User(response);
         firebaseUserInfo = user;
-        resolve(userInfo); // userInfo 반환
+        resolve(userInfo);
+        if (userInfo) {
+          window.sessionStorage.setItem(
+            "personalInfo",
+            JSON.stringify(response)
+          );
+          // if (userInfo.nickname == null || userInfo.nickname == "") {
+          //   window.location.href = "/html/profile.html";
+          // } else {
+          //   if (allowPage.includes(currentPath)) {
+          //     window.location.href = "/html/homepage.html";
+          //   }
+          // }
+        }
       } catch (e) {
-        console.log(e);
-        reject(e); // 에러가 발생한 경우 reject
+        reject(e);
       }
     });
   });

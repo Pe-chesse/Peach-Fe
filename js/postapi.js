@@ -69,11 +69,10 @@ const loadContent = async()=>{
                         <h2 class="user-nick"><a href="./my_profile.html?nickname=${sortContent[i].user.nickname}">${sortContent[i].user.nickname}</a></h2>
                         <p class="timepass">${time()}</p>
                         
-                        <i class="post-side-icon"><img src="../img/post_side_icon.png" alt="post-side-icon"/></i>
                     </div><!--//post-userinfo-->
 
                     <div class="post-content">
-                    <a href="./post_pk.html" onclick="sessionStorage.setItem("write_post_id", ${sortContent[i].id});"><p>${sortContent[i].body}</p></a>
+                    <a href="./post_pk.html" onclick="sessionStorage.setItem('write_post_id', ${sortContent[i].id});"><p>${sortContent[i].body}</p></a>
                     </div>
 
                     <div class="post-state">
