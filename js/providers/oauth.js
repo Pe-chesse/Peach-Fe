@@ -7,25 +7,15 @@ import { api } from "../services/api.js";
 import User from "../models/user.js";
 
 const allowPage = [
+  "",
   "index.html",
   "loginpage.html",
-  "homepage.html",
   "join.html",
   "post_pk.html",
 ];
 
-export const firebaseConfig = {
-  apiKey: config.FIREBASE_KEY,
-  authDomain: config.AUTH_DOMAIN,
-  projectId: config.PROJECT_ID,
-  storageBucket: config.STORAGE_BUCKET,
-  messagingSenderId: config.MESSAGING_SENDER_ID,
-  appId: config.APP_ID,
-  mesurementid: config.MEASUREMENT_ID,
-};
-export let app;
 export default async function oAuth() {
-  app = initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
   return new Promise(async (resolve, reject) => {
@@ -33,26 +23,33 @@ export default async function oAuth() {
       const currentEndpoint = window.location.pathname;
       const path = window.location.pathname.split("/");
       const currentPath = path[path.length - 1];
-      console.log(currentEndpoint);
+      console.log(currentPath);
       if (!user && allowPage.includes(currentEndpoint)) {
         return (window.location.href = "./return.html");
       }
+      window.sessionStorage.setItem("user", JSON.stringify(user));
       try {
+        function delay(ms) {
+          return new Promise((resolve) => setTimeout(resolve, ms));
+        }
         const response = await api.account.verify();
         userInfo = new User(response);
         resolve(userInfo);
-      } catch (e) {
-        console.log(e);
-        reject(e);
-      }
-      if (userInfo) {
-        if (userInfo.nickname == null || userInfo.nickname.trim().length) {
-          window.location.href = "/html/profile.html";
-        } else {
-          if (allowPage.includes(currentPath)) {
-            window.location.href = "/html/homepage.html";
+        if (userInfo) {
+          window.sessionStorage.setItem(
+            "personalInfo",
+            JSON.stringify(response)
+          );
+          if (userInfo.nickname == null || userInfo.nickname == "") {
+            window.location.href = "/html/profile.html";
+          } else {
+            if (allowPage.includes(currentPath)) {
+              window.location.href = "/html/homepage.html";
+            }
           }
         }
+      } catch (e) {
+        reject(e);
       }
     });
   });

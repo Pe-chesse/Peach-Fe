@@ -1,9 +1,10 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
-import { app } from "../../providers/oauth.js";
+const app = initializeApp(firebaseConfig);
 const button = document.querySelector("#google-sign-in");
 
 const provider = new GoogleAuthProvider();
