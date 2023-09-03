@@ -22,12 +22,11 @@ export default async function oAuth() {
 
   return new Promise(async (resolve, reject) => {
     onAuthStateChanged(auth, async (user) => {
-      const currentEndpoint = window.location.pathname;
       const path = window.location.pathname.split("/");
       const currentPath = path[path.length - 1];
       console.log(currentPath);
-      if (!user && allowPage.includes(currentEndpoint)) {
-        // return (window.location.href = "/index.html");
+      if (!user && allowPage.includes(currentPath)) {
+        return (window.location.href = "/index.html");
       }
       window.sessionStorage.setItem("user", JSON.stringify(user));
       try {
@@ -39,13 +38,13 @@ export default async function oAuth() {
             "personalInfo",
             JSON.stringify(response)
           );
-          // if (userInfo.nickname == null || userInfo.nickname == "") {
-          //   window.location.href = "/html/profile.html";
-          // } else {
-          //   if (allowPage.includes(currentPath)) {
-          //     window.location.href = "/html/homepage.html";
-          //   }
-          // }
+          if (userInfo.nickname == null || userInfo.nickname == "") {
+            window.location.href = "/html/profile.html";
+          } else {
+            if (allowPage.includes(currentPath)) {
+              window.location.href = "/html/homepage.html";
+            }
+          }
         }
       } catch (e) {
         console.log(e);

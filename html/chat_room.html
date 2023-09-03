@@ -1,43 +1,37 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/reset.css" rel="stylesheet"/>
-    <link href="../css/chat.css" rel="stylesheet"/>
+    <link href="../css/reset.css" rel="stylesheet" />
+    <link href="../css/chat.css" rel="stylesheet" />
     <title>Peach Market Chat Room</title>
 </head>
+
 <body>
     <div class="wrapper">
         <article class="top-area">
-            <a href="javascript:window.history.back();"><img src="../img/arrow.png" alt="arrow"/></a>
-            <h1>행복한 복숭아 농장</h1>
-            <img src="../img/top_menu_op.png" alt="more_vertical"/>
+            <a href="javascript:window.history.back();"><img src="../img/arrow.png" alt="arrow" /></a>
+            <h1 class="chat-room-title">행복한 복숭아 농장</h1>
+            <img src="../img/top_menu_op.png" alt="more_vertical" />
         </article>
-        
+
         <article class="chat-room">
-            <div class="chat-room-they">
-                <img src="../img/peach-user.png" alt="user-profile"/>
-                <h3>복숭아 구매 가능할까요?</h3>
-                <p class="chat-message-time">12:52</p>
-            </div>
-            <div class="chat-room-my">
-                <p class="chat-message-time">14:13</p>
-                <h3>가능할 것 같으세요?</h3>
-            </div>
         </article>
-        
+
         <article class="bottom-area">
-            <form method="get" class="chat-form">
+            <div class="chat-form">
                 <button type="button" class="user-icon"><img src="../img/user_icon.png" alt="user-icon"></button>
                 <label for="m-send" class="sr-only"></label>
-                <input type="search" placeholder="메시지 입력하기" id="m-send" class="message-send">
+                <input type="text" placeholder="메시지 입력하기" id="m-send" class="message-send">
                 <button type="submit" class="send-button">전송</button>
-            </form>
+            </div>
         </article>
     </div>
     <script src="../js/env.js"></script>
     <script type="module" src="../js/chat_room.js"></script>
 </body>
+
 </html>
