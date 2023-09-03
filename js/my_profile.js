@@ -1,3 +1,5 @@
+import api from './services/api.js'
+
 const firebaseConfig = {
     apiKey: config.FIREBASE_KEY,
     authDomain: config.AUTH_DOMAIN,
@@ -14,6 +16,21 @@ import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/
 const auth = getAuth();
 const baseurl = 'http://3.37.239.49/'
 
+
+
+document.querySelector('.talk-icon').addEventListener('click', async ()=>{
+    const urlParams = new URLSearchParams(window.location.search);
+
+    try{
+		const response = await api.chat.create(urlParams.get(nickname))
+		console.log(response)
+        
+        window.location.href = `./chat_room.html?display=${urlParams.get(nickname)}&room=${response}`
+
+    }catch(e){
+            console.log(e);
+    }
+})
 
 onAuthStateChanged(auth, (user)=>{
     if(user){
