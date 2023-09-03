@@ -6,9 +6,15 @@ import {
 import { api } from "../services/api.js";
 import User from "../models/user.js";
 
-const allowPage = ["*"];
+const allowPage = [
+  "index.html",
+  "loginpage.html",
+  "homepage.html",
+  "join.html",
+  "post_pk.html",
+];
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: config.FIREBASE_KEY,
   authDomain: config.AUTH_DOMAIN,
   projectId: config.PROJECT_ID,
@@ -17,24 +23,36 @@ const firebaseConfig = {
   appId: config.APP_ID,
   mesurementid: config.MEASUREMENT_ID,
 };
-
+export let app;
 export default async function oAuth() {
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth();
+  app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
 
   return new Promise(async (resolve, reject) => {
     onAuthStateChanged(auth, async (user) => {
       const currentEndpoint = window.location.pathname;
+      const path = window.location.pathname.split("/");
+      const currentPath = path[path.length - 1];
+      console.log(currentEndpoint);
       if (!user && allowPage.includes(currentEndpoint)) {
         return (window.location.href = "./return.html");
       }
       try {
         const response = await api.account.verify();
         userInfo = new User(response);
-        resolve(userInfo); // userInfo 반환
+        resolve(userInfo);
       } catch (e) {
         console.log(e);
-        reject(e); // 에러가 발생한 경우 reject
+        reject(e);
+      }
+      if (userInfo) {
+        if (userInfo.nickname == null || userInfo.nickname.trim().length) {
+          window.location.href = "/html/profile.html";
+        } else {
+          if (allowPage.includes(currentPath)) {
+            window.location.href = "/html/homepage.html";
+          }
+        }
       }
     });
   });
