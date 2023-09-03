@@ -48,16 +48,12 @@ export default async function oAuth() {
       if (userInfo) {
         let this_url = window.location.href.split('/').reverse()[0];
         if (userInfo.nickname == null || userInfo.nickname.trim().length) {
-          if(this_url == "index.html"){
-            window.location.href = "./html/profile.html";
-          }else{
+          if(this_url != "index.html"){
             window.location.href = "./profile.html";
           }
         } else {
           if (allowPage.includes(currentPath)) {
-            if(this_url == "index.html"){
-              window.location.href = "./html/profile.html";
-            }else{
+            if(this_url != "index.html"){
               window.location.href = "./profile.html";
             }
           }
