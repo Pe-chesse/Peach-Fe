@@ -72,7 +72,7 @@ const loadContent = async()=>{
                     </div><!--//post-userinfo-->
 
                     <div class="post-content">
-                    <a href="./post_pk.html" onclick="sessionStorage.setItem("write_post_id", ${sortContent[i].id});"><p>${sortContent[i].body}</p></a>
+                    <a href="./post_pk.html" onclick="sessionStorage.setItem('write_post_id', ${sortContent[i].id});"><p>${sortContent[i].body}</p></a>
                     </div>
 
                     <div class="post-state">
