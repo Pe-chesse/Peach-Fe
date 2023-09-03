@@ -1,32 +1,48 @@
-import { address } from "./api";
-import { firebaseUserInfo } from "../providers/oauth.js";
-export function getUser() {
-  console.log(firebaseUserInfo);
+import { address } from "./api.js";
+
+export default class WS {
+  constructor() {
+    const user = JSON.parse(sessionStorage.user);
+    this.url = `ws://${address}:8001/ws/v1/chat/${user.uid}/`;
+    this.socket = null;
+    this.connect();
+  }
+
+  connect() {
+    this.socket = new WebSocket(this.url);
+
+    this.socket.onopen = () => {
+      this.onConnect();
+    };
+
+    this.socket.onmessage = (event) => {
+      this.onMessage(event.data);
+    };
+
+    this.socket.onclose = () => {
+      this.onDisconnect();
+    };
+  }
+
+  disconnect() {
+    if (this.socket) {
+      this.socket.close();
+    }
+  }
+
+  send(message) {
+    if (this.socket && this.socket.readyState === WebSocket.OPEN) {
+      this.socket.send(message);
+    }
+  }
+
+  onConnect() {
+    console.log("WebSocket connected");
+  }
+
+  onDisconnect() {
+    console.log("WebSocket disconnected");
+  }
+
+  onMessage(message) {}
 }
-// const webSocket = new WebSocket(`ws://${address}/ws/v1/chat/${auth.}`);
-// webSocket.onopen = (event) => {
-//     console.log("WebSocket connection opened");
-// };
-
-// webSocket.onmessage = (event) => {
-//     const message = event.data;
-//     messagesElement.innerHTML += `<p>${message}</p>`;
-// };
-
-// webSocket.onclose = (event) => {
-//     if (event.wasClean) {
-//         console.log(`Closed cleanly, code=${event.code}, reason=${event.reason}`);
-//     } else {
-//         console.error("Connection died");
-//     }
-// };
-
-// webSocket.onerror = (error) => {
-//     console.error(`WebSocket Error: ${error.message}`);
-// };
-
-// sendButton.addEventListener("click", () => {
-//     const message = messageInput.value;
-//     webSocket.send(message);
-//     messageInput.value = "";
-// });

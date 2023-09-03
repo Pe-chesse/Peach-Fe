@@ -6,6 +6,8 @@ import {
 import { api } from "../services/api.js";
 import User from "../models/user.js";
 
+export let userInfo;
+
 const allowPage = [
   "",
   "index.html",
@@ -29,12 +31,8 @@ export default async function oAuth() {
       }
       window.sessionStorage.setItem("user", JSON.stringify(user));
       try {
-        function delay(ms) {
-          return new Promise((resolve) => setTimeout(resolve, ms));
-        }
         const response = await api.account.verify();
         userInfo = new User(response);
-        firebaseUserInfo = user;
         resolve(userInfo);
         if (userInfo) {
           window.sessionStorage.setItem(
@@ -50,11 +48,9 @@ export default async function oAuth() {
           // }
         }
       } catch (e) {
+        console.log(e);
         reject(e);
       }
     });
   });
 }
-
-export let userInfo;
-export let firebaseUserInfo;
