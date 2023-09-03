@@ -1,6 +1,5 @@
 function setLikecount(sortContent,res){
     const likeIcon = document.querySelectorAll('.like-icon')
-    console.log(likeIcon)
     likeIcon.forEach((icon)=>{
         icon.addEventListener('click',(e)=>{
             let clickValue = e.target.closest('.post').getAttribute('id')

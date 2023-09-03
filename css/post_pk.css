@@ -1,10 +1,12 @@
 /* 포스트 */
 .posting-main {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     border-bottom: 1px solid #d9d9d9;
     padding: 14px;
+    box-sizing: border-box;
 }
 
 .post-user-img {
@@ -15,7 +17,7 @@
 }
 
 .post-content {
-    width: 94%;
+    width: 100%;
     margin-inline: 14px;
 }
 
@@ -71,24 +73,32 @@
 
 /* 댓글 */
 .comment-area {
-    width: 94%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding: 8px;
+    box-sizing: border-box;
 }
 
 .comment-list {
     display: flex;
     flex-direction: row;
     padding: 10px;
+    overflow: hidden;
 }
 
 .comment-list-img {
     margin-right: 10px;
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
+    overflow: hidden;
+}
+
+.comment-list-img img{
+    width: 30px;
+    height: 30px;
 }
 
 .comment-list-content {
@@ -105,7 +115,8 @@
 }
 
 .comment-list-content-info-user {
-    font-size: medium;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .comment-list-content-info-time {
@@ -123,6 +134,60 @@
     height: 21px;
     cursor: pointer;
 }
+
+/* 대댓글 */
+
+.child-comment {
+    display: flex;
+    flex-direction: row;
+    padding: 7px 10px 7px 40px;
+}
+
+.child-comment-list-img {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #ffbfbf
+}
+
+.child-comment-list-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 2;
+}
+
+.child-comment-list-content-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.child-comment-list-content-info-user {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.child-comment-list-content-info-time {
+    font-size: x-small;
+    margin-inline: 10px;
+}
+
+.child-comment-list-content-text {
+    font-size: medium;
+}
+
+.child-comment-list-side-icon {
+    
+    padding-top: 5px;
+    height: 21px;
+    width: 26px;
+    cursor: pointer;
+}
+
 
 /* 댓글공백 */
 .comment-blank {

@@ -8,11 +8,9 @@ const firebaseConfig = {
     mesurementid : config.MEASUREMENT_ID,
 };
 
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
-const app = initializeApp(firebaseConfig);
+
 const auth = getAuth();
 const baseurl = 'http://3.37.239.49/'
 

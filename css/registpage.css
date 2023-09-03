@@ -113,6 +113,7 @@ section form input:focus {
     font-size: 14px;
     transition: all .3s;
     text-align: center;
+    cursor: pointer;
 }
 
 .back-black {

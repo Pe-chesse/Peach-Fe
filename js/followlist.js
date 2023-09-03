@@ -36,7 +36,7 @@ function followlist(){
                 </div>
         `
                 )
-            })
+            }).join()
             document.querySelector('.follower-list').innerHTML = followlistTem
         })
     }

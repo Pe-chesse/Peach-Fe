@@ -59,6 +59,7 @@ body::-webkit-scrollbar {
 .main-profile-area p {
     font-size: 14px;
     color: #767676;
+    text-align: center
 }
 /* 여기 */
 section form {
@@ -118,6 +119,7 @@ section form .email {
     justify-content: center;
     align-items: center;
     margin: 18px 0 13px 0;
+    cursor: pointer;
 }
 
 .follow-btn {
@@ -125,7 +127,6 @@ section form .email {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
 }
 
 .follow-btn button {
