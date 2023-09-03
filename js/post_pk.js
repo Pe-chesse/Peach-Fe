@@ -107,30 +107,30 @@ if(writePostId === null){
 // `${baseurl}post/comment/44/` 대댓글
 
 //댓글 보내기
-document.querySelector(".comment-write-area-submit").onclick = async function (e) {
-    let body = {
-        body: document.querySelector(".comment-write-area-textarea").value,
-    };
-    console.log(body);
+// document.querySelector(".comment-write-area-submit").onclick = async function (e) {
+//     let body = {
+//         body: document.querySelector(".comment-write-area-textarea").value,
+//     };
+//     console.log(body);
 
-    await fetch(`${baseurl}post/${writePostId}/`, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `bearer ${idtoken}`,
-        },
-    body: JSON.stringify(body),
-    })
-    .then((res) => {
-        return res.json();
-    })
-    .then((res) => {
-        console.log(res);
-    })
-    .catch((err) => {
-        console.error(err);
-    });
-};
+//     await fetch(`${baseurl}post/${writePostId}/`, {
+//         method: "POST",
+//         headers: {
+//             'Content-Type': 'application/json',
+//             Authorization: `bearer ${idtoken}`,
+//         },
+//     body: JSON.stringify(body),
+//     })
+//     .then((res) => {
+//         return res.json();
+//     })
+//     .then((res) => {
+//         console.log(res);
+//     })
+//     .catch((err) => {
+//         console.error(err);
+//     });
+// };
 
 
 // const commentInput = document.getElementById('comment-input');
@@ -143,3 +143,38 @@ document.querySelector(".comment-write-area-submit").onclick = async function (e
 //         commentingButton.style.color = '#C4C4C4';
 //     }
 // });
+
+
+// 댓글 작성 버튼 클릭 이벤트 리스너 추가
+document.querySelector(".comment-write-area-submit").addEventListener("click", async function () {
+    try {
+        // 사용자가 입력한 댓글 내용 가져오기
+        const commentText = document.querySelector(".comment-write-area-textarea").value;
+
+        // API를 사용하여 댓글 작성 요청 보내기
+        const api = new api();
+        const response = await api.comment.write(postId, commentText);
+
+        // 댓글 작성 성공 시, 화면에 댓글 추가
+        const commentList = document.querySelector(".comment-area");
+        const commentItem = document.createElement("div");
+        commentItem.className = "comment-list";
+        commentItem.innerHTML = `
+            <img class="comment-list-img" src="../img/peach-user.png" alt="comment-list-img"/>
+            <div class="comment-list-content">
+                <div class="comment-list-content-info">
+                    <h3 class="comment-list-content-info-user">${response.user.nickname}</h3>
+                    <p class="comment-list-content-info-time">방금 전</p>
+                </div>
+                <p class="comment-list-content-text">${response.body}</p>
+            </div>
+            <img class="comment-list-side-icon" src="../img/post_side_icon.png" alt="comment-list-side-icon">
+        `;
+        commentList.appendChild(commentItem);
+
+        // 댓글 입력창 초기화
+        document.querySelector(".comment-write-area-textarea").value = "";
+    } catch (error) {
+        console.error("댓글 작성 중 오류 발생:", error);
+    }
+});
