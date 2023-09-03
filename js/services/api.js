@@ -1,8 +1,8 @@
-import { AccountAPI } from "./api/account.js";
-import { BucketAPI } from "./api/bucket.js";
-import { ChatAPI } from "./api/chat.js";
-import { PostAPI } from "./api/post.js";
-import { CommentAPI } from "./api/comment.js";
+import AccountAPI from "./api/account.js";
+import BucketAPI from "./api/bucket.js";
+import ChatAPI from "./api/chat.js";
+import PostAPI from "./api/post.js";
+import CommentAPI from "./api/comment.js";
 
 const base = "http://3.37.239.49/api/v1/";
 export const baseURL = {
@@ -26,7 +26,7 @@ export const baseURL = {
   },
 };
 
-export class API {
+class API {
   constructor() {
     this.account = new AccountAPI();
     this.bucket = new BucketAPI();
@@ -35,3 +35,4 @@ export class API {
     this.comment = new CommentAPI();
   }
 }
+export const api = new API();

@@ -1,7 +1,7 @@
 import { Dio } from "../../utils/dio.js";
 import { baseURL } from "../api.js";
 
-class BucketAPI {
+export default class BucketAPI {
   constructor() {
     this.dio = new Dio();
   }

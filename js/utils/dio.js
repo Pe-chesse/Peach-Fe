@@ -1,6 +1,6 @@
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
-class Dio {
+export class Dio {
   async get(url, headers = {}) {
     const idToken = await this.getIdToken();
     return this.dio(url, "GET", undefined, {
@@ -59,5 +59,3 @@ class Dio {
     }
   }
 }
-
-export default Dio;
