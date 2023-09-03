@@ -88,7 +88,6 @@ export class RoomInfo {
 
 export class ChatInfo {
   constructor(data) {
-    console.log(data);
     this.data = data.data.map((item) => new RoomInfo(item));
     this.unread = data.data
       .map((e) => e.unread)
