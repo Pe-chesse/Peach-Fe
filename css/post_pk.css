@@ -1,0 +1,362 @@
+/* 포스트 */
+.posting-main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 14px;
+    box-sizing: border-box;
+}
+
+.post-user-img {
+    margin-right: auto;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.post-content {
+    width: 100%;
+    margin-inline: 14px;
+}
+
+.post-content-info {
+    margin-bottom: 24px;
+}
+
+.post-content-info-nick {
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.post-content-info-time {
+    font-size: small;
+    margin-bottom: 8px;
+}
+
+.post-content-text {
+    margin-block: 16px;
+}
+
+.post-content-img {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.post-img-list {
+    width: 295px;
+    height: 207px;
+    border-radius: 10%;
+    margin: 10px;
+}
+
+.post-state {
+    display: flex;
+    flex-direction: row;
+    margin-top: 32px;
+    margin-bottom: 8px;
+}
+
+.post-state-like {
+    margin-right: 32px;
+}
+
+.post-user-side-icon {
+    margin-left: auto;
+    height: 25px;
+    cursor: pointer;
+}
+
+/* 댓글 */
+.comment-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.comment-list {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.comment-list-img {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.comment-list-img img{
+    width: 30px;
+    height: 30px;
+}
+
+.comment-list-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comment-list-content-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.comment-list-content-info-user {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.comment-list-content-info-time {
+    font-size: x-small;
+    margin-inline: 10px;
+}
+
+.comment-list-content-text {
+    font-size: medium;
+}
+
+.comment-list-side-icon {
+    margin-left: auto;
+    padding-top: 5px;
+    height: 21px;
+    cursor: pointer;
+}
+
+/* 대댓글 */
+
+.child-comment {
+    display: flex;
+    flex-direction: row;
+    padding: 7px 10px 7px 40px;
+}
+
+.child-comment-list-img {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #ffbfbf
+}
+
+.child-comment-list-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 2;
+}
+
+.child-comment-list-content-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.child-comment-list-content-info-user {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.child-comment-list-content-info-time {
+    font-size: x-small;
+    margin-inline: 10px;
+}
+
+.child-comment-list-content-text {
+    font-size: medium;
+}
+
+.child-comment-list-side-icon {
+    
+    padding-top: 5px;
+    height: 21px;
+    width: 26px;
+    cursor: pointer;
+}
+
+
+/* 댓글공백 */
+.comment-blank {
+    height: 60px;
+}
+
+/* 댓글쓰기 */
+.comment-write {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    border-top: 1px solid #d9d9d9;
+    width: 100%;
+}
+
+.comment-write-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+}
+
+.comment-write-area-user {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.comment-write-area-textarea {
+    border: none;
+    font-size: 15px;
+    flex-grow: 2;
+    border-bottom: 1px solid transparent;
+    margin-inline: 10px;
+}
+
+.comment-write-area-textarea:focus {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #ffbfbf 
+}
+
+.comment-write-area-submit {
+    border: none;
+    background-color: white;
+    color: #C4C4C4;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+/* 모달 */
+.modal {
+    padding: 13px 26px;
+    background: #fff;
+    height: 0px;
+    border-radius: 20px 20px 0 0;
+    border: 1px solid #ffdfdf;
+    z-index: 10;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all .5s;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.modal img {
+    width: 50px;
+    height: 4px;
+    margin: 16px 0 16px 0;
+}
+
+.modal button {
+    width: 100%;
+    height: 46px;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.modal-back {
+    width: 100%;
+    height: 0px;
+    background: transparent;
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.after {
+    visibility: visible;
+    height: 108px;
+}
+
+.back-after {
+    height: 100vh;
+    display: block;
+}
+
+.delete-confirm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 1px solid #ffbfbf;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 130px;
+    z-index: 10;
+    border-radius: 15px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.delete-confirm h3{
+    font-size: 16px;
+    font-weight: bold;
+    height: 65px;
+    line-height: 65px;
+    border-bottom: 1px solid #dbdbdb;
+    width: 100%;
+    text-align: center;
+}
+
+.delete-confirm ul {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+}
+
+.delete-confirm li {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.delete {
+    color: #ffbfbf;
+    border-left: 1px solid #dbdbdb;
+}
+
+.after-click {
+    visibility: visible;
+    opacity: 1;
+}

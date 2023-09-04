@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <title>Peach-Market</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <article class="top-area">
+            <a href="javascript:window.history.back();"><img src="../img/arrow.png" alt="arrow" /></a>
+            <a href=""><img src="../img/top_menu_op.png" alt="more_vertical"></a>
+        </article>
+
+        <article class="main-area">
+
+            <header class="default-header">
+                <h1>PROFILE🍑</h1>
+                <h3>나중에 언제든지 변경할 수 있습니다</h3>
+            </header>
+
+            <div class="image-select">
+                <label for="profile-img">
+                    <img id="profile-img-renderer" src="../img/profile.png" alt="profile-img" /></label>
+                <input type="file" name="image-key" id="profile-img" accept="image/*">
+            </div>
+
+            <div class="input-text">
+                <input type="text" placeholder="닉네임" id="nickname">
+                <p class="nick-warn">* 이미 사용중인 닉네임입니다.</p>
+                <input type="textarea" placeholder="소개" id="introduce" value="">
+            </div>
+
+            <button class="start-btn">Peach Market 시작하기</button>
+        </article>
+    </div>
+    <script src="../js/env.js"></script>
+    <script type="module" src="../js/profile.js"></script>
+</body>
+
+</html>

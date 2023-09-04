@@ -1,0 +1,97 @@
+/* search page */
+
+.wrapper {
+    overflow: hidden;
+}
+
+.prev-button {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.search {
+    flex-grow: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.userSearch {
+    margin-right: 4px;
+    padding: 7px 16px;
+    width: 60%;
+    min-width: 316px;
+    border: none;
+    background: #F2F2F2;
+    border-radius: 32px;
+    cursor: pointer;
+}
+
+.userSearch::placeholder {
+    color: #c4c4c4;
+}
+
+.userSearch:focus {
+    outline: 2px solid #ffbfbf;
+}
+
+
+/* js css */
+.container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding : 7px 10px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.searched-user {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.searched-user a {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.searched-user a img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ffbfbf;
+    overflow: hidden;
+}
+
+/* .container .profileImg {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 20px;
+    display: block;
+}
+
+.container .nickname {
+    width: 40px;
+    margin-left: 10px;
+}
+
+.user-info {
+    margin-left: 30px;
+    flex-grow: 2;
+} */
+
+.searched-user-nick {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 40px;
+}
+
+.keyword {
+    color: #ffbfbf;
+}

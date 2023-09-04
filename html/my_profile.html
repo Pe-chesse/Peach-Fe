@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/reset.css" rel="stylesheet"/>
+    <link href="../css/common.css" rel="stylesheet"/>
+    <link href="../css/profile_post.css" rel="stylesheet"/>
+    <title>Peach Market</title>
+</head>
+<body>
+    <div class="wrapper">
+        <article class="top-area">
+            <a href="javascript:window.history.back();"><img src="../img/arrow.png" alt="arrow"/></a>
+            <img src="../img/top_menu_op.png" alt="top_menu_option" class="menu-bar"/>
+        </article>
+
+        <section class="main-profile-area">
+            <div class="main-profile-follow">
+                <a href="./followers.html">
+                    <div>
+                        <h3 class="followers"></h3>
+                        <p>followers</p>
+                    </div>
+                </a>
+                <div class="profile-img">
+                    <img src="" alt="">
+                </div>
+                <a href="./followings.html">
+                    <div>
+                        <h3 class="followings"></h3>
+                        <p>followings</p>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <h2 class="user-nickname"></h2>
+                <p class="user-des"></p>
+            </div>
+            <i class="talk-icon"><img src="../img/icon_comment.png" alt="talk-icon"/></i>
+            <div class="profile-op">
+                <a href="./my_profile_set.html">프로필 수정</a>
+                <a href="./product_write.html">상품 등록</a>
+            </div>
+        </section><!--//your porfile top-->
+
+        <section class="product-list">
+            <h2 class="product-list-title">판매 중인 상품</h2>
+            <article class="product-area">
+                <div class="product-item">
+                    <div class="item-img">
+                        <img src="../img/peach_1.png" alt="peach-img"/>
+                    </div>
+                    <h3>노지 복숭아</h3>
+                    <p>40,000 원</p>
+                </div>
+                <div class="product-item">
+                    <div class="item-img">
+                        <img src="../img/peach_2.png" alt="peach-img"/>
+                    </div>
+                    <h3>노지 복숭아</h3>
+                    <p>28,000 원</p>
+                </div>
+                <div class="product-item">
+                    <div class="item-img">
+                        <img src="../img/peach_3.png" alt="peach-img"/>
+                    </div>
+                    <h3>노지 복숭아</h3>
+                    <p>28,000 원</p>
+                </div>
+            </article>
+        </section><!--//product list-->
+
+        <div class="post-view">
+            <button class="list-icon"><img src="../img/icon_list_on.png" alt="img"/></button>
+        </div>
+
+        <section class="post-section">
+            <article class="post">
+                <div class="post-userinfo">
+                    <div class="post-userinfo-img">
+                        <!-- 이미지 -->
+                    </div>
+                    <!-- 사용자 닉네임 -->
+                    <h2 class="user-nick"></h2>
+                    <i class="post-side-icon"><img src="../img/post_side_icon.png" alt="post-side-icon"/></i>
+                </div><!--//post-userinfo-->
+
+                <div class="post-content">
+                    <!-- 사용자 게시글 body, img-->
+                    <p></p>
+                </div>
+
+                <div class="post-state">
+                    <div class="post-like">
+                        <img src="../img/heart_off.png" alt="post-heart"/>
+                        <p class="like-count">30</p>
+                    </div>
+                    <div class="post-comment">
+                        <img src="../img/icon_comment.png" alt="post-comment"/>
+                        <p class="comment-count">18</p>
+                    </div>
+                </div>
+                <div class="post-date">
+                    <!-- 사용자 게시글 날짜 -->
+                    <p></p>
+                </div>
+            </article><!--//post-->
+        </section>
+
+        <section class="member-modal">
+            <img src="../img/modal_rec.png" alt="rec-bar"/>
+            <ul>
+                <li><p>설정 및 개인정보</p></li>
+                <li class="logout"><p>로그아웃</p></li>
+            </ul>
+        </section>
+        <div class="modal-background"></div>
+    </div>
+
+    <section class="member-logout">
+        <p>로그아웃 하시겠어요?</p>
+        <ul>
+            <li>취소</li>
+            <li class="logout-btn">로그아웃</li>
+        </ul>
+    </section>
+
+    <article>
+        <nav class="tab-menu">
+            <ul class="tab-menu-elements">
+                <li class="tab-menu-home">
+                    <a href="./homepage.html">홈</a>
+                </li>
+                <li class="tab-menu-chat">
+                    <a href="./chat_list.html">채팅</a>
+                </li>
+                <li class="tab-menu-post">
+                    <a href="./post_write.html">게시물 작성</a>
+                </li>
+                <li class="tab-menu-profile on">
+                    <a href="">프로필</a>
+                </li>
+            </ul>
+        </nav>
+    </article>
+
+    <script src="../js/env.js"></script>
+    <script src="../js/modal.js"></script>
+    <script type="module" src="../js/services/api.js"></script>
+    <script type="module" src="../js/basic.js"></script>
+    <script type="module" src="../js/my_profile.js"></script>
+    <script src="../js/followapi.js"></script>
+    <script src="../js/likeapi.js"></script>
+    <script type="module" src="../js/logout.js"></script>
+</body>
+</html>

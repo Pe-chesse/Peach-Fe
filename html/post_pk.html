@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/reset.css" rel="stylesheet"/>
+    <link href="../css/post_pk.css" rel="stylesheet"/>
+    <title>Peach Market Post Detail</title>
+</head>
+<body>
+    <div class="wrapper">
+        <article class="top-area">
+            <a href="javascript:window.history.back();"><img src="../img/arrow.png" alt="arrow"/></a>
+        </article>
+
+        <article class="posting-main">
+            <img class="post-user-img" src="../img/station.jpg" alt="post-user-img">
+
+            <div class="post-content">
+                <div class="post-content-info">
+                    <h3 class="post-content-info-nick">행복한 복숭아 농장</h3>
+                    <p class="post-content-info-time">4시간 전</p>
+                </div>
+                <div class="post-content-text">
+                    <p>인생의 목적은 사랑받는 사람이 되는 것이 아니라 자기 자신이 되는거란다. 너에게는 너만이 완성할 수 있는 삶의 목적이 있고, 그것은 네 사랑으로 채워야 할 것이지 누군가의 사랑으로 채워질 수 있는 것이 아니야.</p>
+                </div>
+                <div class="post-content-img">
+                    <!-- <img class="post-img-list" src="../img/station.jpg" alt="post-img-list"/> -->
+                </div>
+                <div class="post-state">
+                    <div class="post-state-like">
+                        <img src="../img/heart_off.png" alt="post-heart"/>
+                        <p class="like-count">30</p>
+                    </div>
+                </div>
+            </div>
+
+            <img class="post-user-side-icon" src="../img/post_side_icon.png" alt="post-user-side-icon"/>
+        </article>
+
+        <article class="comment-area">
+            <!-- <div class="comment-list">
+                <img class="comment-list-img" src="../img/peach-user.png" alt="comment-list-img"/>
+                <div class="comment-list-content">
+                    <div class="comment-list-content-info">
+                        <h3 class="comment-list-content-info-user">행복한 복숭아 농장1</h3>
+                        <p class="comment-list-content-info-time">15분 전</p>
+                    </div>
+                    <p class="comment-list-content-text">제발 헛소리좀 하지마요..1</p>
+                </div>
+                <img class="comment-list-side-icon" src="../img/post_side_icon.png" alt="comment-list-side-icon">
+            </div> -->
+        </article>
+
+        <div class="comment-blank"></div>
+
+        <div class="comment-write">
+            <div class="comment-write-area">
+                <img class="comment-write-area-user" src="../img/peach-user.png" alt="comment-write-area-user">
+                <input class="comment-write-area-textarea" type="textarea" placeholder="댓글 입력하기">
+                <input class="comment-write-area-submit" type="submit" value="게시">
+            </div>
+        </div>
+
+
+        <div class="modal-back"></div>
+        <section class="modal">
+            <div class="modal-content">
+                <img src="../img/modal_rec.png" alt="rec-bar"/>
+                <!-- <button class="delete-btn"><p>수정</p></button> -->
+                <button class="delete-btn"><p>삭제</p></button>
+            </div>
+        </section>
+
+        <article class="delete-confirm">
+            <h3>댓글을 삭제 하시겠습니까?</h3>
+            <ul>
+                <li class="cancle">취소</li>
+                <li class="delete">삭제</li>
+            </ul>
+        </article>
+    </div>
+
+    <script src="../js/env.js"></script>
+    <script type="module" src="../js/post_pk.js"></script>
+    <script src="../js/delete_modal.js"></script>
+    </body>
+</html>

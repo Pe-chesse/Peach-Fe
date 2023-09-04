@@ -1,0 +1,126 @@
+/* 게시글 */
+.post {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-bottom: 1px solid #dbdbdb;
+    margin-bottom: 12px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.post-userinfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.post-userinfo-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #dbdbdb;
+    overflow: hidden;
+}
+
+.post-userinfo-img img {
+    width: 43px;
+    height: 43px;
+}
+
+.post-userinfo h2 {
+    font-size: 16px;
+    font-weight: bold;
+    flex-grow: 3;
+    margin-left: 8px;
+}
+
+.timepass {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin: -7px 7px 0 0;
+
+}
+
+.post-side-icon {
+    margin-right: 15px;
+}
+
+.post-content {
+    padding: 8px 54px;
+}
+
+.post-content p {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    word-break: keep-all;
+}
+
+.post-img {
+    margin-top: 13px;
+    width: 80%;
+}
+
+.post-state {
+    width: 100%;
+    margin: 0 0 8px 54px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.post-state img {
+    margin-right: 3px;
+}
+
+.post-state p {
+    margin-right: 8px;
+    font-size: 13px;
+}
+
+.post-like, .post-comment {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.post-like p, .post-comment p {
+    color: #767676;
+
+}
+
+.post-date {
+    padding-left: 54px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 13px;
+}
+
+.post:last-child {
+    margin-bottom: 60px;
+}
+
+/* 팔로우 */
+.unfollowing {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.unfollowing button{
+    background: #fff;
+    border: 1px solid #dadada;
+    color: #767676;
+    width: 110px;
+    height: 36px;
+    border-radius: 30px;
+    outline: none;
+    font-size: 14px;
+    cursor: pointer;
+}

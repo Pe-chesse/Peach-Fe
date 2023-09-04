@@ -1,0 +1,360 @@
+/* login-page */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper {
+    overflow: hidden;
+}
+
+.main-profile-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.main-profile-follow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 33px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.main-profile-follow h3{
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile-img {
+    width: 73px;
+    height: 73px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin : 0 25px;
+    border: 1px solid #dbdbdb;
+}
+
+.profile-img img {
+    width: 73px;
+    height: 73px;
+}
+
+.main-profile-follow p{
+    font-size: 14px;
+    color: #767676;
+}
+
+.main-profile-area h2 {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0 20px 0;
+}
+
+.main-profile-area p {
+    font-size: 14px;
+    color: #767676;
+    text-align: center
+}
+/* 여기 */
+section form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 42px;
+}
+
+section form input {
+    width: 80%;
+    border-radius: 30px;
+    border: 1px solid #746969;
+    padding: 14px;
+}
+
+section form input:focus {
+    outline: 1px solid #ffbfbf;
+    border: 1px solid #ffffff00
+}
+
+section form .email {
+    margin-bottom: 30px;
+}
+
+.login-warn {
+    width: 80%;
+    color: #eb5757 !important;
+    margin-top: 6px;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-start;
+    opacity: 0;
+}
+
+.regist-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.regist-btn a {
+    color: #767676;
+    font-size: 12px;
+}
+/* 여기까지 */
+.talk-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #dbdbdb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 18px 0 13px 0;
+    cursor: pointer;
+}
+
+.follow-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.follow-btn button {
+    width: 110px;
+    height: 36px;
+    border-radius: 30px;
+    outline: none;
+    background: #ffbfbf;
+    border: none;
+    color :#fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.profile-op {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.profile-op a {
+    width: 110px;
+    height: 36px;
+    border-radius: 30px;
+    outline: none;
+    background: #fff;
+    border: 1px solid #dadada;
+    color :#767676;
+    font-size: 14px;
+    text-align: center;
+    line-height: 36px;
+}
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    padding: 17px;
+    border-top: 1px solid #dbdbdb;
+}
+
+.product-list-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+.product-area {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    height: 136px;
+}
+
+.product-area::-webkit-scrollbar {
+    display: none;
+}
+
+.product-item {
+    display: block;
+    width: 150px;
+    height: 132px;
+    margin-right: 10px;
+}
+
+.item-img {
+    width: 140px;
+    height: 88px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.product-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.product-item p {
+    color: #F26E22;
+    font-size: 14px;
+    padding-left: 3px;
+}
+
+.product-item h3 {
+    font-size: 18px;
+    color: #303030;
+    font-weight: bold;
+}
+
+.post-view {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 7px 6px;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.post-view button {
+    outline: none;
+    background: #fff;
+    border: none;
+    margin-right: 16px;
+}
+
+.post-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12px;
+}
+
+.member-modal {
+    width: calc( 100% - 4px );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px;
+    border: 0px solid #ffbfbf;
+    border-radius: 30px 30px 0 0;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background: #fff;
+    overflow: hidden;
+    height: 0px;
+    transition: all .5s;
+    z-index: 10;
+}
+
+.member-modal img {
+    width: 50px;
+    height: 4px;
+}
+
+.member-modal ul {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 16px;
+}
+
+.member-modal li {
+    width: 100%;
+    height: 46px;
+    font-size: 14px;
+    font-weight: bold;
+    vertical-align: center;
+    line-height: 46px;
+    cursor: pointer;
+}
+
+.member-modal li p {
+    margin-left: 26px;
+}
+
+.modal-background {
+    background: transparent;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    display: none;
+}
+
+.modal-toggle {
+    height: 138px;
+    border: 2px solid #ffbfbf;
+    padding: 26px 0;
+    z-index: 15;
+}
+
+.disbl {
+    display: block !important;
+}
+
+.member-logout {
+    width: 252px;
+    height: 130px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    background: #fff;
+    border: 1px solid #ffbfbf;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    display: none;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+.member-logout p {
+    height: 65px;
+    line-height: 65px;
+    border-bottom: 1px solid #dbdbdb;
+    width: 100%;
+    text-align: center;
+}
+
+.member-logout ul {
+    display: flex;
+    flex-direction: row;
+    height: 65px;
+    width: 100%;
+}
+
+.member-logout li{
+    flex-grow: 1;
+    z-index: 15;
+    text-align:center;
+    width:100%;
+    border-right: 1px solid #dbdbdb;
+    line-height: 65px;
+    cursor: pointer;
+}
+
+.member-logout li:last-child {
+    border-right: none;
+}
+
+.logout-btn {
+    color: #ffbfbf;
+}

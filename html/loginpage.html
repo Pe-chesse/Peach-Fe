@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/reset.css" rel="stylesheet"/>
+    <link href="../css/loginpage.css" rel="stylesheet"/>
+    <title>Peach Market</title>
+</head>
+<body>
+    <div class="wrapper">
+        <article class="top-area">
+            <a href="javascript:window.history.back();"><img src="../img/arrow.png" alt="arrow"/></a>
+            <p>이메일로 로그인</p>
+        </article>
+        <section class="main-area">
+            <h2>LOGIN 🍑</h2>
+            <p>이메일과 비밀번호를 입력해주세요</p>
+            <form>
+                    <input type="email" name="email" class="email" placeholder="이메일" autocomplete="off"/>
+                    <input type="password" name="password" class="password" placeholder="비밀번호"/>
+            </form>
+            <p class="login-warn">* 이메일 또는 비밀번호가 일치하지 않습니다. 회원이 아니실 경우에는 회원 가입을 먼저 진행해 주세요.</p>
+        </section>
+        <div class="regist-btn">
+            <a href="./join.html">회원가입</a>
+        </div>
+        <div class="login-btn-area">
+            <button class="login-btn">로그인</button>
+        </div>
+    </div>
+    <div class="email-verify">
+        <h3>이메일 미인증</h3>
+        <p>사용자님의 주소로 인증요청을 전송했습니다.</p>
+        <p>메일 내부의 링크를 클릭하시면 인증이 완료됩니다.</p>
+        <div class="send-btn-area">
+            <button class="resend">인증 메일 재발송</button>
+            <button class="confirm">확인</button>
+        </div>
+    </div>
+    <script src="../js/env.js"></script>
+    <script type="module" src="../js/login.js"></script>
+</body>
+</html>

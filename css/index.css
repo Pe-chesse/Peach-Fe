@@ -1,0 +1,82 @@
+.wrapper {
+    height: 100vh;
+    background-color: #FFBFBF;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo {
+    text-align: center;
+    width:100%;
+    margin-top: 100px;
+}
+
+.logo img {
+    width: 150px;
+    height: 150px;
+}
+
+.logo h1 {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.go-login {
+    width:100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 50vh);
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    border-radius: 40px 40px 0 0;
+}
+
+.go-login button {
+    width: 322px;
+    height: 44px;
+    background: #fff;
+    border: 1px solid #767676;
+    border-radius: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    margin-top: calc(100vh - 90vh)
+}
+
+.go-login button img {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+}
+
+.go-login button p {
+    font-size: 14px;
+    margin-left: 4rem;
+    color: #767676;
+}
+
+.go-login .login-reg {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    color: #767676;
+    justify-content: center;
+}
+
+.go-login .login-reg a::after{
+    content: 'ㅣ';
+    margin-right: 1px;
+
+}
+
+.go-login .login-reg a:last-child::after {
+    content: ''
+}

@@ -1,0 +1,48 @@
+.top-area h1 {
+    flex-grow: 2;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.product_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 80%;
+    padding: 10%;
+}
+
+.img-area {
+    margin-bottom: 45px;
+    width: 100%;
+}
+
+.img-area img {
+    width: 295px;
+    height: 207px;
+}
+
+.detail-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.detail-sub {
+    font-size: 16px;
+    color: #767676;
+    margin-bottom: 20px;
+}
+
+.detail-price {
+    font-size: 22px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.detail-content {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: bold;
+}
