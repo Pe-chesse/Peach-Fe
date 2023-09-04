@@ -28,8 +28,8 @@ const loadContent = async()=>{
                 </div>`
             )
         }else{
+            console.log(sortContent)
             let result = sortContent.map((a,i)=>{
-                console.log(sortContent[i].user.image_url)
                 function time(date) {
                     const seconds = 1;
                     const minute = seconds * 60;
@@ -74,6 +74,13 @@ const loadContent = async()=>{
                     <a href="./post_pk.html" onclick="sessionStorage.setItem('write_post_id', ${sortContent[i].id});">
                     <div class="post-content">
                     <p>${sortContent[i].body}</p>
+                    ${sortContent[i].image_url != '' ? 
+                        `
+                        <div class="post-image-section">
+                            <img class="fisrt-image" src="${sortContent[i].image_url[0]}" alt="post-image"/>
+                        </div>
+                        `:""
+                    }
                     </div>
                     </a>
                     <div class="post-state">

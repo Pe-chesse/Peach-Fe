@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeModalButton = document.getElementById('close-modal');
     const confirmDeleteButton = document.querySelector('.confirm-delete');
 
-    postSideButton.addEventListener('click', ()=>{
-        modal.classList.toggle('after');
-        modalback.classList.toggle('back-after');
-    })
+    // postSideButton.addEventListener('click', ()=>{
+    //     modal.classList.toggle('after');
+    //     modalback.classList.toggle('back-after');
+    // })
 
     deleteButtons.forEach((button) => {
         button.addEventListener('click', function () {
