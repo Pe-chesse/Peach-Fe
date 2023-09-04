@@ -25,7 +25,7 @@ export default async function oAuth() {
       const path = window.location.pathname.split("/");
       const currentPath = path[path.length - 1];
       console.log(currentPath);
-      if (!user && allowPage.includes(currentPath)) {
+      if (!user && !allowPage.includes(currentPath)) {
         return (window.location.href = "/index.html");
       }
       window.sessionStorage.setItem("user", JSON.stringify(user));

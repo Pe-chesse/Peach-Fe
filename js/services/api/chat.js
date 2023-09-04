@@ -8,8 +8,15 @@ export default class ChatAPI {
 
   async create(nickname) {
     try {
-      return await this.dio.post(baseURL.chat.create, { nickname: nickname });
+      return await this.dio.post(
+        baseURL.chat.create,
+        { nickname: nickname },
+        {
+          "Content-Type": "application/json",
+        }
+      );
     } catch (error) {
+      console.log(error);
       return error;
     }
   }
