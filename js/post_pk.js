@@ -137,7 +137,7 @@ if(writePostId === null){
                 </div>
                 <div class="comment-child-input">
                     <div class="writing-user">
-                        <img src='${sessionStorage.personalInfo.image_url == null ? '../img/peach_cha.png': sessionStorage.personalInfo.image_url}' alt="user-profile-image"/>
+                        <img src='${JSON.parse(window.sessionStorage.personalInfo).image_url == null  ? '../img/peach_cha.png' : JSON.parse(window.sessionStorage.personalInfo).image_url}' alt="user-profile-image"/>
                     </div>
                     <input class="child-comment-write"/>
                     <button class="child-comment-submit">등록</button>
@@ -180,11 +180,12 @@ if(writePostId === null){
 
 //댓글 보내기
 document.querySelector(".comment-write-area-submit").onclick = async function (e) {
+    const user = JSON.parse(sessionStorage.user)
+    const idtoken = user.stsTokenManager.accessToken
     let body = {
         body: document.querySelector(".comment-write-area-textarea").value,
     };
     console.log(body);
-
     await fetch(`${baseurl}post/${writePostId}/`, {
         method: "POST",
         headers: {
