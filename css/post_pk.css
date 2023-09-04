@@ -60,14 +60,14 @@
     margin: 32px 0 0 20px
 }
 
-.post-state-like {
+.post-like {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 }
 
-.post-state-like img {
+.post-like img {
     margin-right: 7px;
 }
 

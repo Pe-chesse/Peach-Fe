@@ -58,7 +58,7 @@ if(writePostId === null){
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
-            // Authorization: `bearer ${idtoken}`,
+            Authorization: `bearer ${idtoken}`,
         },
     })
     .then((res) => {
@@ -85,6 +85,8 @@ if(writePostId === null){
         for(let i=0; i<postContent.image_url.length; i++){
             document.querySelector(".post-content-img").innerHTML += `<img class="post-img-list" src="${postContent.image_url[i]}" alt="post-img-list"/>`;
         }
+        console.log(document.querySelector('.post-like img'))
+        document.querySelector('.post-like img').setAttribute('src', postContent.is_like ? '../img/heart.png' : '../img/heart_off.png')
         document.querySelector(".like-count").textContent = postContent.like_length;
 
         let insertCommnet =  postContent.comment_set.map((a,i)=>{
