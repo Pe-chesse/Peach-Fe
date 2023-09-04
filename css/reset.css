@@ -57,6 +57,10 @@ table {
     width: 100%;
     font-family: 'IBM Plex Sans KR', sans-serif;
 }
+body::-webkit-scrollbar {
+    display: none;
+}
+
 /* 라벨 숨기기 */
 .sr-only {
 	position: absolute;

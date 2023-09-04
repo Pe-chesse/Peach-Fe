@@ -70,11 +70,12 @@ const loadContent = async()=>{
                         <p class="timepass">${time()}</p>
                         
                     </div><!--//post-userinfo-->
+
                     <a href="./post_pk.html" onclick="sessionStorage.setItem('write_post_id', ${sortContent[i].id});">
                     <div class="post-content">
                     <p>${sortContent[i].body}</p>
                     </div>
-
+                    </a>
                     <div class="post-state">
                         <div class="post-like">
                             ${sortContent[i].is_like == false ? '<img src="../img/heart_off.png" alt="post-heart" class="like-icon"/>' : '<img src="../img/heart.png" alt="like_icon" class="like-icon"/>'}
@@ -88,7 +89,6 @@ const loadContent = async()=>{
                     <div class="post-date">
                         <p>${sortContent[i].updated_at.substr(0,10)}</p>
                     </div>
-                    </a>
                 </article><!--//post-->
             `
                     )

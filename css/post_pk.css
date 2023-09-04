@@ -57,12 +57,18 @@
 .post-state {
     display: flex;
     flex-direction: row;
-    margin-top: 32px;
-    margin-bottom: 8px;
+    margin: 32px 0 0 20px
 }
 
 .post-state-like {
-    margin-right: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.post-state-like img {
+    margin-right: 7px;
 }
 
 .post-user-side-icon {
@@ -86,6 +92,8 @@
     flex-direction: row;
     padding: 10px;
     overflow: hidden;
+    cursor: pointer;
+    z-index: 10;
 }
 
 .comment-list-img {
@@ -209,6 +217,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
+    background: #fff;
 }
 
 .comment-write-area-user {
@@ -239,6 +248,65 @@
     cursor: pointer;
 }
 
+/* 대댓글 */
+.comment-child-input {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 7px 10px 0px 40px;
+    box-sizing: border-box;
+    height: 0px;
+    transition: all .5s;
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+
+.writing-user {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border: 1px solid #ffbfbf;
+    border-radius: 50%;
+    margin-bottom: 17px;
+}
+
+.writing-user img {
+    width: 30px;
+    height: 30px;
+}
+
+.child-comment-write {
+    width: 80%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #ffbfbf;
+    margin-left: 10px;
+}
+
+.child-comment-submit {
+    background-color: #fff;
+    font-weight: bold;
+    color:#C4C4C4;
+    cursor: pointer;
+    word-break: keep-all;
+    margin-left: 20px;
+    transition: all .3s;
+}
+
+.child-comment-submit:hover {
+    color: #ffbfbf;
+}
+
+.vi {
+    visibility: visible;
+    opacity: 1;
+    height:48px;
+}
+
 
 /* 모달 */
 .modal {
@@ -246,7 +314,7 @@
     background: #fff;
     height: 0px;
     border-radius: 20px 20px 0 0;
-    border: 1px solid #ffdfdf;
+    border: 1px solid #ffbfbf;
     z-index: 10;
     position: fixed;
     bottom: 0px;
