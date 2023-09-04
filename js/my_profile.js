@@ -1,5 +1,3 @@
-import api from './services/api.js'
-
 const firebaseConfig = {
     apiKey: config.FIREBASE_KEY,
     authDomain: config.AUTH_DOMAIN,

@@ -10,7 +10,7 @@ logoutbtn.addEventListener('click',(e)=>{
     e.preventDefault();
     signOut(auth)
     .then((res)=>{
-        window.location.href="../index.html"
+        window.location.href="./index.html"
         window.sessionStorage.removeItem('user')
         window.sessionStorage.removeItem('personalInfo')
         window.sessionStorage.removeItem('usernick')

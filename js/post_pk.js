@@ -17,34 +17,33 @@ const baseurl = "http://3.37.239.49/api/v1/";
 let idtoken;
 let postContent;
 
-//내정보
-onAuthStateChanged(auth, async (user)=>{
-    if(user){
-        idtoken = await user.getIdToken();
-
-        const contentPost = async ()=>{
-        const result = await fetch(`${baseurl}account/verify/`, {
-            method : "GET",
+// 내정보
+function getUserInfo(){
+    const user = JSON.parse(sessionStorage.user)
+    const idtoken = user.stsTokenManager.accessToken
+    let finduser = async ()=>{
+        const result = await fetch(`${baseurl}account/verify/`,{
+            method : 'GET',
             headers : {
                 Authorization: `bearer ${idtoken}`,
             }
         })
         .then((res)=>{
-            return res.json();
+            return res.json()
         })
         .then((res)=>{
             console.log(res)
             document.querySelector(".comment-write-area-user").src = res.image_url??'../img/peach_cha.png'
-
-            console.log(res);
+            return res
         })
         .catch((err)=>{
-            console.error(err);
+            console.log(err)
         })
     }
-        contentPost();
-    }
-})
+    finduser()
+}
+getUserInfo()
+
 
 let writePostId = sessionStorage.getItem("write_post_id");
 
@@ -68,9 +67,10 @@ if(writePostId === null){
     .then((res) => {
         console.log(res);
         postContent = res;
+        
 
         // 데이터 셋
-        document.querySelector(".post-user-img").src = postContent.user.image_url;
+        document.querySelector(".post-user-img").src = postContent.user.image_url == null ? '../img/peach_cha.png' : postContent.user.image_url;
         document.querySelector(".post-content-info-nick").textContent = postContent.user.nickname;
         
         // 시간 설정
@@ -88,6 +88,7 @@ if(writePostId === null){
         document.querySelector(".like-count").textContent = postContent.like_length;
 
         let insertCommnet =  postContent.comment_set.map((a,i)=>{
+            console.log(postContent.comment_set[i].updated_at)
             function time(date) {
                 const seconds = 1;
                 const minute = seconds * 60;
@@ -95,7 +96,7 @@ if(writePostId === null){
                 const day = hour * 24;
                 
                 let now = new Date
-                let timeresult = new Date(postContent.comment_set[i].updated_at.replaceAll("T"," ").substr(0,19))
+                let timeresult = new Date(date.replaceAll("T"," ").substr(0,19))
                 let timecalc = Math.trunc((now.getTime() - timeresult.getTime()) / 1000);
                 
                 let elapsedText = "";
@@ -119,18 +120,25 @@ if(writePostId === null){
             console.log(postContent.comment_set[i].child_comments)
             return(
                 `
-                <div class="comment-list">
+                <div class="comment-list" id=${i}>
                 <div class="comment-list-img">
                 <img src="${postContent.comment_set[i].user.image_url == null ? '../img/peach_cha.png' : postContent.comment_set[i].user.image_url}" alt="comment-list-img"/>
                 </div>
-                <div class="comment-list-content">
+                <div class="comment-list-content" id='${postContent.comment_set[i].id}'>
                     <div class="comment-list-content-info">
                         <h3 class="comment-list-content-info-user">${postContent.comment_set[i].user.nickname}</h3>
-                        <p class="comment-list-content-info-time">${time()}</p>
+                        <p class="comment-list-content-info-time">${time(postContent.comment_set[i].updated_at)}</p>
                     </div>
                     <p class="comment-list-content-text">${postContent.comment_set[i].body}</p>
                 </div>
                 <img class="comment-list-side-icon" src="../img/post_side_icon.png" alt="comment-list-side-icon">
+                </div>
+                <div class="comment-child-input">
+                    <div class="writing-user">
+                        <img src='${sessionStorage.personalInfo.image_url == null ? '../img/peach_cha.png': sessionStorage.personalInfo.image_url}' alt="user-profile-image"/>
+                    </div>
+                    <input class="child-comment-write"/>
+                    <button class="child-comment-submit">등록</button>
                 </div>
                 ${postContent.comment_set[i].child_comments != '' ? postContent.comment_set[i].child_comments.map((a,idx) => {
                     return(
@@ -140,7 +148,7 @@ if(writePostId === null){
                             <div class="child-comment-list-content">
                         <div class="child-comment-list-content-info">
                             <h3 class="child-comment-list-content-info-user">${postContent.comment_set[i].child_comments[idx].user.nickname}</h3>
-                            <p class="child-comment-list-content-info-time">${time()}</p>
+                            <p class="child-comment-list-content-info-time">${time(postContent.comment_set[i].child_comments[idx].updated_at)}</p>
                         </div>
                         <p class="child-comment-list-content-text">${postContent.comment_set[i].child_comments[idx].body}</p>
                     </div>
@@ -149,13 +157,14 @@ if(writePostId === null){
                         </div>
                         `
                         )
-                    }): ''
+                    }).join(''): ''
                 }
                 `
             )
         }).join('')
 
         document.querySelector('.comment-area').innerHTML = insertCommnet
+
     })
 
     .catch((err) => {
@@ -187,11 +196,57 @@ document.querySelector(".comment-write-area-submit").onclick = async function (e
     })
     .then((res) => {
         console.log(res);
+        window.location.reload()
     })
     .catch((err) => {
         console.error(err);
     });
 };
+
+// 대댓글 작성
+setTimeout(() => {
+    let commentList = document.querySelectorAll('.comment-list')
+    let childComment = document.querySelectorAll('.comment-child-input')
+    const user = JSON.parse(sessionStorage.user)
+    const idtoken = user.stsTokenManager.accessToken
+    console.log(childComment)
+
+    commentList.forEach((e)=>{
+        e.addEventListener('click',(e)=>{
+            let findinput = childComment[e.target.id]
+            findinput.classList.toggle('vi')
+            
+            childComment.forEach((e)=>{
+                if(e !== findinput){
+                    e.classList.remove('vi')
+                }
+            })
+            e.target.nextElementSibling.lastElementChild.addEventListener('click', async ()=>{
+                console.log(document.querySelector('.child-comment-write').value)
+                await fetch(`${baseurl}post/comment/${e.target.children[1].id}/`,{
+                    method : "POST",
+                    headers :{
+                        'Content-Type': 'application/json',
+                        'Authorization': `bearer ${idtoken}`,
+                    },
+                    body : JSON.stringify({
+                        body : document.querySelector('.child-comment-write').value
+                    })
+                })
+                .then((res)=>{
+                    return res.json()
+                })
+                .then((res)=>{
+                    console.log(res)
+                    window.location.reload()
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+            })
+        })
+    })
+}, 200);
 
 
 // const commentInput = document.getElementById('comment-input');
