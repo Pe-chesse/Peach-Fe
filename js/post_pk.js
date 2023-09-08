@@ -88,6 +88,9 @@ if(writePostId === null){
         console.log(document.querySelector('.post-like img'))
         document.querySelector('.post-like img').setAttribute('src', postContent.is_like ? '../img/heart.png' : '../img/heart_off.png')
         document.querySelector(".like-count").textContent = postContent.like_length;
+        document.querySelector('.delete-modal-content').innerHTML = postContent.user.nickname == JSON.parse(window.sessionStorage.personalInfo).nickname ? `<img class="post-user-side-icon" src="../img/post_side_icon.png" alt="post-user-side-icon"/>`: '' ;
+        
+
 
         let insertCommnet =  postContent.comment_set.map((a,i)=>{
             console.log(postContent.comment_set[i].updated_at)
@@ -118,8 +121,9 @@ if(writePostId === null){
                 
                 return elapsedText;
             }
-            console.log(postContent.comment_set[i])
-            console.log(postContent.comment_set[i].child_comments)
+            console.log(postContent.user.nickname)
+            console.log(JSON.parse(window.sessionStorage.personalInfo).nickname)
+            console.log(postContent.comment_set[i].user.nickname)
             return(
                 `
                 <div class="comment-list" id=${i}>
@@ -133,7 +137,9 @@ if(writePostId === null){
                     </div>
                     <p class="comment-list-content-text">${postContent.comment_set[i].body}</p>
                 </div>
-                <img class="comment-list-side-icon" src="../img/post_side_icon.png" alt="comment-list-side-icon">
+                ${
+                    postContent.comment_set[i].user.nickname == JSON.parse(window.sessionStorage.personalInfo).nickname ?'<img class="comment-list-side-icon" src="../img/post_side_icon.png" alt="comment-list-side-icon">' : ''
+                }
                 </div>
                 <div class="comment-child-input">
                     <div class="writing-user">
@@ -147,7 +153,7 @@ if(writePostId === null){
                         `
                         <div class='child-comment'>
                             <img class="child-comment-list-img" src = "${postContent.comment_set[i].child_comments[idx].user.image_url == null ? '../img/peach_cha.png' : postContent.comment_set[i].child_comments[idx].user.image_url}" alt="commnent-child-img"/>
-                            <div class="child-comment-list-content">
+                        <div class="child-comment-list-content">
                         <div class="child-comment-list-content-info">
                             <h3 class="child-comment-list-content-info-user">${postContent.comment_set[i].child_comments[idx].user.nickname}</h3>
                             <p class="child-comment-list-content-info-time">${time(postContent.comment_set[i].child_comments[idx].updated_at)}</p>
@@ -156,7 +162,7 @@ if(writePostId === null){
                     </div>
                     <img class="child-comment-list-side-icon" src="../img/post_side_icon.png" alt="child-comment-list-side-icon">
                     </div>
-                        </div>
+                        
                         `
                         )
                     }).join(''): ''

@@ -22,11 +22,14 @@
     border-radius: 50%;
     border: 1px solid #dbdbdb;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .post-userinfo-img img {
-    width: 43px;
-    height: 43px;
+    width: 50px;
+    height: 50px;
 }
 
 .post-userinfo h2 {
@@ -123,4 +126,38 @@
     outline: none;
     font-size: 14px;
     cursor: pointer;
+}
+
+.post-image-section {
+    display: flex;
+    flex: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.second-image {
+    width: 200px !important;
+    height: 140px !important;
+}
+
+.other-image {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.other-image img{
+    width: 143px !important;
+    height: 100px !important;
+    margin: 7px !important;
+}
+
+.less-count {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

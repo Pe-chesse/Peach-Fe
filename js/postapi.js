@@ -28,8 +28,8 @@ const loadContent = async()=>{
                 </div>`
             )
         }else{
+            console.log(sortContent)
             let result = sortContent.map((a,i)=>{
-                console.log(sortContent[i].user.image_url)
                 function time(date) {
                     const seconds = 1;
                     const minute = seconds * 60;
@@ -57,7 +57,7 @@ const loadContent = async()=>{
                     
                     return elapsedText;
                 }
-
+                
                     return(
                 `
                 <article class="post" id=${sortContent[i].id}>
@@ -73,6 +73,35 @@ const loadContent = async()=>{
 
                     <a href="./post_pk.html" onclick="sessionStorage.setItem('write_post_id', ${sortContent[i].id});">
                     <div class="post-content">
+                    <div class="post-image-section">
+                    ${
+                        sortContent[i].image_url != ''  && sortContent[i].image_url.length == 1 ?
+                            `<img class="fisrt-image" src="${sortContent[i].image_url[0]}" alt="post-image"/>`
+                        :
+                        sortContent[i].image_url.length == 2 ?
+                        sortContent[i].image_url.map((a,j)=>{
+                            return(
+                                `<img class="second-image" src="${sortContent[i].image_url[j]}" alt="post-image"/>`
+                            )
+                        }).join(''):
+                        sortContent[i].image_url.length > 2 ?
+                                `
+                                <img class="third-image" src="${sortContent[i].image_url[0]}" alt="post-image"/>
+                                <div class="other-image">
+                                <img class="third-image" src="${sortContent[i].image_url[1]}" alt="post-image"/>
+                                <img class="third-image" src="${sortContent[i].image_url[2]}" alt="post-image"/>
+                                </div>
+                                ${
+                                    sortContent[i].image_url.length > 3 ?
+                                    `<div class="less-count">
+                                    <p>+${sortContent[i].image_url.length - 3}..</p>
+                                    </div>
+                                    `: ''
+                                }
+                                `
+                        :''
+                    }
+                    </div>
                     <p>${sortContent[i].body}</p>
                     </div>
                     </a>
@@ -83,7 +112,7 @@ const loadContent = async()=>{
                         </div>
                         <div class="post-comment">
                             <img src="../img/icon_comment.png" alt="post-comment"/>
-                            <p class="comment-count">${sortContent[i].comment_length}</p>
+                            <p class="comment-count">${sortContent[i].comment_length }</p>
                         </div>
                     </div>
                     <div class="post-date">
