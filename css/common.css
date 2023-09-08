@@ -124,3 +124,37 @@
     font-size: 14px;
     cursor: pointer;
 }
+
+.post-image-section {
+    display: flex;
+    flex: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.second-image {
+    width: 200px !important;
+    height: 140px !important;
+}
+
+.other-image {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.other-image img{
+    width: 143px !important;
+    height: 100px !important;
+    margin: 7px !important;
+}
+
+.less-count {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
