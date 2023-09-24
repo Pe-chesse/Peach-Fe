@@ -37,3 +37,17 @@
     font-size: 14px;
     cursor: pointer;
 }
+
+.post-image-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.post-image-section img {
+    width: 295px;
+    height: 207px;
+    border-radius: 10%;
+    margin: 10px;
+}

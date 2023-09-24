@@ -53,7 +53,7 @@ profileImg.addEventListener("change", async (event) => {
   }
 });
 
-document.querySelector(".start-btn").onclick = async function (e) {
+document.querySelector(`${window.location.href.includes('my_profile_set.html') ? '.fix-btn' : 'start-btn'}`).onclick = async function (e) {
   const profileNickname = document.querySelector("#nickname");
   const profileIntroduce = document.querySelector("#introduce");
   console.log(profileImg.value);
