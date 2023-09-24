@@ -83,7 +83,7 @@ function followlist(){
                 </div>
         `
                 )
-            }).join()
+            }).join('')
             document.querySelector('.follower-list').innerHTML = followlistTem
         })
     }

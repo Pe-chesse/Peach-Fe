@@ -52,7 +52,8 @@ const loadContent = async()=>{
                     } else if (timecalc < (day * 15)) {
                         elapsedText = Math.trunc(timecalc / day) + "일 전";
                     } else {
-                        elapsedText = SimpleDateTimeFormat(date, "yyyy.M.d");
+                        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+                        elapsedText =  timeresult.toLocaleDateString('ko-KR', options).replace(/\//g, '.');
                     }
                     
                     return elapsedText;
