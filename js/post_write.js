@@ -54,9 +54,10 @@ uploadImgBtn.addEventListener("change", async function() {
   for(let i=0; i<f.length; i++){
     formData.append('files', f[i]);
   }
-  // console.log(formData.getAll('files'));
+  console.log(formData.getAll('files'));
 
   if (f) {
+    console.log(formData)
     const result = await fetch(`${baseurl}bucket/media/`, {
       method: "POST",
       headers: {
@@ -65,7 +66,9 @@ uploadImgBtn.addEventListener("change", async function() {
       body: formData,
     })
       .then(async (res) => {//이미지 요소 및 키 추가
+        console.log(f)
         const data = await res.json();
+        console.log(data)
         let tmp = imageKeys.length;
         imageKeys.push(...data.image_keys);
         console.log(imageKeys);
